@@ -16,5 +16,10 @@ namespace Xuong_Nhua
         {
             InitializeComponent();
         }
+
+        private void khToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
