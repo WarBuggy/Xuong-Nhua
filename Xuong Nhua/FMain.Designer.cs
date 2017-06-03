@@ -1,6 +1,6 @@
 ﻿namespace Xuong_Nhua
 {
-    partial class Form1
+    partial class FMain
     {
         /// <summary>
         /// Required designer variable.
