@@ -9,3 +9,6 @@ CREATE TABLE `customer` (
   PRIMARY KEY (`cus_id`),
   UNIQUE KEY `id_cus_UNIQUE` (`cus_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COMMENT='Store customer data'
+
+
+test
