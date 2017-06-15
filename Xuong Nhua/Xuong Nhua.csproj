@@ -32,6 +32,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -45,16 +46,113 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FMain.cs">
+    <Compile Include="Database\MySQL.cs" />
+    <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FMain.Designer.cs">
-      <DependentUpon>FMain.cs</DependentUpon>
+    <Compile Include="FormMain.designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PaneInfo.cs" />
+    <Compile Include="PaneInputControl\PaneInputComboBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PaneInputControl\PaneInputControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PaneInputControl\PaneInputControl.Designer.cs" />
+    <Compile Include="PaneInputControl\PaneInputDate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PaneInputControl\PaneInputNumberbox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PaneInputControl\PaneInputTextbox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pane\PaneBase\PaneBase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pane\PaneBase\PaneBase.designer.cs">
+      <DependentUpon>PaneBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pane\PaneBase\PaneBaseInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pane\PaneBase\PaneBaseInfo.designer.cs">
+      <DependentUpon>PaneBaseInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pane\PaneBase\PaneBaseSelect.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pane\PaneBase\PaneBaseSelect.designer.cs">
+      <DependentUpon>PaneBaseSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pane\PaneBase\PaneUpdate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pane\PaneBase\PaneUpdate.designer.cs">
+      <DependentUpon>PaneUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pane\PanePartner\PanePartner.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pane\PanePartner\PanePartnerInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pane\PanePartner\PanePartnerSelect.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pane\PanePartner\PanePartnerUpdate.cs">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FMain.resx">
-      <DependentUpon>FMain.cs</DependentUpon>
+    <Compile Include="Share.cs" />
+    <Compile Include="Theme\PaneCenterFlow.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Theme\ThemeButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Theme\ThemeButton.Designer.cs" />
+    <Compile Include="Theme\ThemeCombo.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Theme\ThemeDateBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Theme\ThemeDGV.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Theme\ThemeLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Theme\ThemeLabel.Designer.cs" />
+    <Compile Include="Theme\ThemeLabelInfo.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Theme\ThemeNumberbox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Theme\ThemeTextbox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PaneInputControl\PaneInputControl.resx" />
+    <EmbeddedResource Include="Pane\PaneBase\PaneBase.resx">
+      <DependentUpon>PaneBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pane\PaneBase\PaneBaseInfo.resx">
+      <DependentUpon>PaneBaseInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pane\PaneBase\PaneBaseSelect.resx">
+      <DependentUpon>PaneBaseSelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pane\PaneBase\PaneUpdate.resx">
+      <DependentUpon>PaneUpdate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -65,6 +163,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Theme\ThemeButton.resx" />
+    <EmbeddedResource Include="Theme\ThemeLabel.resx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -81,5 +181,6 @@
   <ItemGroup>
     <Content Include="SQL Commands.txt" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

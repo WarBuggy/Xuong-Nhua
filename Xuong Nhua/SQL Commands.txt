@@ -1,14 +1,1 @@
 ﻿
-
-CREATE TABLE `customer` (
-  `cus_id` int(11) NOT NULL AUTO_INCREMENT,
-  `cus_name` varchar(200) NOT NULL,
-  `cus_info` varchar(200) NOT NULL DEFAULT '',
-  `cus_mob_phone_01` varchar(45) NOT NULL DEFAULT '',
-  `cus_mob_phone_02` varchar(45) NOT NULL DEFAULT '',
-  PRIMARY KEY (`cus_id`),
-  UNIQUE KEY `id_cus_UNIQUE` (`cus_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf16 COMMENT='Store customer data'
-
-
-test
