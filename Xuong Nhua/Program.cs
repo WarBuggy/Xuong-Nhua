@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
-//using Xuong_Nhua.Pane.Warehouse;
-//using Xuong_Nhua.Pane.Category;
-//using Xuong_Nhua.Pane.Style;
-//using Xuong_Nhua.Pane.PartnerCategory;
 using Xuong_Nhua.Pane.Partner;
+using Xuong_Nhua.Pane.Product;
 //using Xuong_Nhua.Pane.PartnerClassification;
 //using Xuong_Nhua.Pane.InventoryInput;
 //using Xuong_Nhua.Pane.Sell;
@@ -30,6 +27,8 @@ namespace Xuong_Nhua
         //public static int PANE_STYLE_ID = 3;
         //public static int PANE_PARTNER_CATEGORY_ID = 4;
         public static int PANE_PARTNER_ID = 5;
+        public static int PANE_PRODUCT_ID = 6;
+
         //public static int PANE_PARTNER_CLASSIFICATION_ID = 6;
         //public static int PANE_INVENTORY_INPUT_ID = 7;
         //public static int PANE_SELL_ID = 8;
@@ -49,6 +48,7 @@ namespace Xuong_Nhua
         //public static PaneStyle PaneStyle = null;
         //public static PanePartnerCategory PanePartnerCategory = null;
         public static PanePartner PanePartner = null;
+        public static PaneProduct PaneProduct = null;
         //public static PanePartnerClassification PanePartnerClassification = null;
         //public static PaneInventoryInput PaneInventoryInput = null;
         //public static PaneSell PaneSell = null;
@@ -62,8 +62,6 @@ namespace Xuong_Nhua
         //public static PaneStyleVariation PaneStyleVariation = null;
         //public static PaneUnitPrice PaneUnitPrice = null;
         //public static PaneStaffList PaneStaffList = null;
-
-        public static int PARTNER_CATEGORY_SELL_TO_ID = 5;
 
         /// <summary>
         /// The main entry point for the application.

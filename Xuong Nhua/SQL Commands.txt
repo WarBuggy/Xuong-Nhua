@@ -1,1 +1,32 @@
-﻿
+﻿CREATE TABLE `paneinfo` (
+  `PaneID` int(11) NOT NULL,
+  `Title` varchar(200) DEFAULT '',
+  `ViewQuery` varchar(2000) DEFAULT '',
+  `InsertQuery` varchar(1000) DEFAULT '',
+  `UpdateQuery` varchar(1000) DEFAULT '',
+  `DeleteQuery` varchar(1000) DEFAULT '',
+  `Comment` varchar(1000) DEFAULT '',
+  `LocalName` varchar(200) DEFAULT '',
+  PRIMARY KEY (`PaneID`),
+  UNIQUE KEY `PaneID_UNIQUE` (`PaneID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `partner` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Name` varchar(500) NOT NULL,
+  `Description` varchar(2000) DEFAULT '',
+  `Comment` varchar(2000) DEFAULT '',
+  `Phone` varchar(2000) DEFAULT '',
+  `Email` varchar(2000) DEFAULT '',
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `id_UNIQUE` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `product` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Name` varchar(500) NOT NULL,
+  `Description` varchar(2000) DEFAULT '',
+  `Comment` varchar(2000) DEFAULT '',
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `id_UNIQUE` (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;

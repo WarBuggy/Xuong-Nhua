@@ -30,9 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.PaneMain = new System.Windows.Forms.Panel();
             this.generalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.partnersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.productsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.PaneMain = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -42,22 +43,15 @@
             this.generalToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1360, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1354, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // PaneMain
-            // 
-            this.PaneMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PaneMain.Location = new System.Drawing.Point(0, 24);
-            this.PaneMain.Name = "PaneMain";
-            this.PaneMain.Size = new System.Drawing.Size(1360, 357);
-            this.PaneMain.TabIndex = 1;
             // 
             // generalToolStripMenuItem
             // 
             this.generalToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.partnersToolStripMenuItem});
+            this.partnersToolStripMenuItem,
+            this.productsToolStripMenuItem});
             this.generalToolStripMenuItem.Name = "generalToolStripMenuItem";
             this.generalToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
             this.generalToolStripMenuItem.Text = "General";
@@ -69,11 +63,26 @@
             this.partnersToolStripMenuItem.Text = "Partners";
             this.partnersToolStripMenuItem.Click += new System.EventHandler(this.partnersToolStripMenuItem_Click);
             // 
+            // productsToolStripMenuItem
+            // 
+            this.productsToolStripMenuItem.Name = "productsToolStripMenuItem";
+            this.productsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.productsToolStripMenuItem.Text = "Products";
+            this.productsToolStripMenuItem.Click += new System.EventHandler(this.productsToolStripMenuItem_Click);
+            // 
+            // PaneMain
+            // 
+            this.PaneMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PaneMain.Location = new System.Drawing.Point(0, 24);
+            this.PaneMain.Name = "PaneMain";
+            this.PaneMain.Size = new System.Drawing.Size(1354, 357);
+            this.PaneMain.TabIndex = 1;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1360, 381);
+            this.ClientSize = new System.Drawing.Size(1354, 381);
             this.Controls.Add(this.PaneMain);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -95,5 +104,6 @@
         private System.Windows.Forms.Panel PaneMain;
         private System.Windows.Forms.ToolStripMenuItem generalToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem partnersToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem productsToolStripMenuItem;
     }
 }

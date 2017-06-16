@@ -106,6 +106,18 @@
     <Compile Include="Pane\PanePartner\PanePartnerUpdate.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Pane\PaneProduct\PaneProduct.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pane\PaneProduct\PaneProductInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pane\PaneProduct\PaneProductSelect.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pane\PaneProduct\PaneProductUpdate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Share.cs" />
@@ -179,6 +191,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="PaneInfoSQL.txt" />
     <Content Include="SQL Commands.txt" />
   </ItemGroup>
   <ItemGroup />
