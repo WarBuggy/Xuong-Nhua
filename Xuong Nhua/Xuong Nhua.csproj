@@ -94,6 +94,18 @@
     <Compile Include="Pane\PaneBase\PaneUpdate.designer.cs">
       <DependentUpon>PaneUpdate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pane\PaneMaterial\PaneMaterial.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pane\PaneMaterial\PaneMaterialInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pane\PaneMaterial\PaneMaterialSelect.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pane\PaneMaterial\PaneMaterialUpdate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Pane\PanePartner\PanePartner.cs">
       <SubType>UserControl</SubType>
     </Compile>

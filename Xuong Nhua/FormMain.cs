@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using Xuong_Nhua.Pane.Base;
+using Xuong_Nhua.Pane.Material;
 using Xuong_Nhua.Pane.Partner;
 using Xuong_Nhua.Pane.Product;
 
@@ -46,15 +47,15 @@ namespace Xuong_Nhua
             DisplayInPaneMain(Program.PaneProduct);
         }
 
-        //private void warehouseToolStripMenuItem_Click(object sender, EventArgs e)
-        //{
-        //    if (Program.PaneWarehouse == null)
-        //    {
-        //        Program.PaneWarehouse = new PaneWarehouse();
-        //        Program.PaneWarehouse.Dock = DockStyle.Fill;
-        //        Program.PaneWarehouse.LoadPane();
-        //    }
-        //    DisplayInPaneMain(Program.PaneWarehouse);
-        //}
+        private void materialsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Program.PaneMaterial == null)
+            {
+                Program.PaneMaterial = new PaneMaterial();
+                Program.PaneMaterial.Dock = DockStyle.Fill;
+                Program.PaneMaterial.LoadPane();
+            }
+            DisplayInPaneMain(Program.PaneMaterial);
+        }
     }
 }

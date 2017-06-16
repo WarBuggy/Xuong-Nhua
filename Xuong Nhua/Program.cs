@@ -2,19 +2,7 @@
 using System.Windows.Forms;
 using Xuong_Nhua.Pane.Partner;
 using Xuong_Nhua.Pane.Product;
-//using Xuong_Nhua.Pane.PartnerClassification;
-//using Xuong_Nhua.Pane.InventoryInput;
-//using Xuong_Nhua.Pane.Sell;
-//using Xuong_Nhua.Pane.InventoryOutput;
-//using Xuong_Nhua.Pane.InventorySummary;
-//using Xuong_Nhua.Pane.IncomeCategory;
-//using Xuong_Nhua.Pane.Income;
-//using Xuong_Nhua.Pane.ExpenditureCategory;
-//using Xuong_Nhua.Pane.Expenditure;
-////FACTORY SECTION
-//using Xuong_Nhua.Pane.StyleVariation;
-//using Xuong_Nhua.Pane.UnitPrice;
-//using Xuong_Nhua.Pane.StaffList;
+using Xuong_Nhua.Pane.Material;
 
 namespace Xuong_Nhua
 {
@@ -28,6 +16,7 @@ namespace Xuong_Nhua
         //public static int PANE_PARTNER_CATEGORY_ID = 4;
         public static int PANE_PARTNER_ID = 5;
         public static int PANE_PRODUCT_ID = 6;
+        public static int PANE_MATERIAL_ID = 7;
 
         //public static int PANE_PARTNER_CLASSIFICATION_ID = 6;
         //public static int PANE_INVENTORY_INPUT_ID = 7;
@@ -49,6 +38,7 @@ namespace Xuong_Nhua
         //public static PanePartnerCategory PanePartnerCategory = null;
         public static PanePartner PanePartner = null;
         public static PaneProduct PaneProduct = null;
+        public static PaneMaterial PaneMaterial = null;
         //public static PanePartnerClassification PanePartnerClassification = null;
         //public static PaneInventoryInput PaneInventoryInput = null;
         //public static PaneSell PaneSell = null;

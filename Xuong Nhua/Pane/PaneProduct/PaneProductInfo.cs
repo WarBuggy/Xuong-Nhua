@@ -10,9 +10,9 @@ namespace Xuong_Nhua.Pane.Product
             AddLabel(new object[] { "Product", "Product(s): ", "0" });
         }
 
-        public void SetInfo(int partner)
+        public void SetInfo(int product)
         {
-            UpdateLabelValue(new object[] { "Product", partner });
+            UpdateLabelValue(new object[] { "Product", product });
         }
     }
 }
