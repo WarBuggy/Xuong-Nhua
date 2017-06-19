@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Data;
 using System.Windows.Forms;
-using Xuong_Nhua.Theme;
 using System.Drawing;
 using MySql.Data.MySqlClient;
 using Xuong_Nhua.InputControl;
@@ -144,16 +142,17 @@ namespace Xuong_Nhua.Pane.Base
 
         public void EditRecord()
         {
+            int currentID = (int)PaneBase.Grid.Rows[PaneBase.Grid.curRow].Cells[GRID_COLUMN_ID].Value;
             if (!CheckRequired())
             {
                 return;
             }
-            if (!CheckExtraEditRequirement())
+            if (!CheckExtraEditRequirement(currentID))
             {
                 return;
             }
             MySqlCommand command = new MySqlCommand(Info.UpdateQuery);
-            command.Parameters.AddWithValue("ID", PaneBase.Grid.Rows[PaneBase.Grid.curRow].Cells[GRID_COLUMN_ID].Value);
+            command.Parameters.AddWithValue("ID", currentID);
             ReplaceEditParams(ref command);
             if (command == null)
             {
@@ -222,7 +221,7 @@ namespace Xuong_Nhua.Pane.Base
             return true;
         }
 
-        public virtual bool CheckExtraEditRequirement()
+        public virtual bool CheckExtraEditRequirement(int id)
         {
             return true;
         }

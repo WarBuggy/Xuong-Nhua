@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using Xuong_Nhua.Pane.Partner;
 using Xuong_Nhua.Pane.Product;
 using Xuong_Nhua.Pane.Material;
+using Xuong_Nhua.Pane.Formula;
 
 namespace Xuong_Nhua
 {

@@ -32,9 +32,10 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.generalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.partnersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.materialsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.productsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PaneMain = new System.Windows.Forms.Panel();
-            this.materialsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.formulasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,7 +54,8 @@
             this.generalToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.partnersToolStripMenuItem,
             this.materialsToolStripMenuItem,
-            this.productsToolStripMenuItem});
+            this.productsToolStripMenuItem,
+            this.formulasToolStripMenuItem});
             this.generalToolStripMenuItem.Name = "generalToolStripMenuItem";
             this.generalToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
             this.generalToolStripMenuItem.Text = "General";
@@ -64,6 +66,13 @@
             this.partnersToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.partnersToolStripMenuItem.Text = "Partners";
             this.partnersToolStripMenuItem.Click += new System.EventHandler(this.partnersToolStripMenuItem_Click);
+            // 
+            // materialsToolStripMenuItem
+            // 
+            this.materialsToolStripMenuItem.Name = "materialsToolStripMenuItem";
+            this.materialsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.materialsToolStripMenuItem.Text = "Materials";
+            this.materialsToolStripMenuItem.Click += new System.EventHandler(this.materialsToolStripMenuItem_Click);
             // 
             // productsToolStripMenuItem
             // 
@@ -80,12 +89,12 @@
             this.PaneMain.Size = new System.Drawing.Size(1354, 357);
             this.PaneMain.TabIndex = 1;
             // 
-            // materialsToolStripMenuItem
+            // formulasToolStripMenuItem
             // 
-            this.materialsToolStripMenuItem.Name = "materialsToolStripMenuItem";
-            this.materialsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.materialsToolStripMenuItem.Text = "Materials";
-            this.materialsToolStripMenuItem.Click += new System.EventHandler(this.materialsToolStripMenuItem_Click);
+            this.formulasToolStripMenuItem.Name = "formulasToolStripMenuItem";
+            this.formulasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.formulasToolStripMenuItem.Text = "Formulas";
+            this.formulasToolStripMenuItem.Click += new System.EventHandler(this.formulasToolStripMenuItem_Click);
             // 
             // FormMain
             // 
@@ -115,5 +124,6 @@
         private System.Windows.Forms.ToolStripMenuItem partnersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem productsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem materialsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem formulasToolStripMenuItem;
     }
 }

@@ -4,6 +4,7 @@ using Xuong_Nhua.Pane.Base;
 using Xuong_Nhua.Pane.Material;
 using Xuong_Nhua.Pane.Partner;
 using Xuong_Nhua.Pane.Product;
+using Xuong_Nhua.Pane.Formula;
 
 namespace Xuong_Nhua
 {
@@ -56,6 +57,17 @@ namespace Xuong_Nhua
                 Program.PaneMaterial.LoadPane();
             }
             DisplayInPaneMain(Program.PaneMaterial);
+        }
+
+        private void formulasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Program.PaneFormula == null)
+            {
+                Program.PaneFormula = new PaneFormula();
+                Program.PaneFormula.Dock = DockStyle.Fill;
+                Program.PaneFormula.LoadPane();
+            }
+            DisplayInPaneMain(Program.PaneFormula);
         }
     }
 }

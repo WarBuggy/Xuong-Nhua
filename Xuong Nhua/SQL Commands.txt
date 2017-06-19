@@ -1,4 +1,66 @@
-﻿CREATE TABLE `paneinfo` (
+-- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
+--
+-- Host: localhost    Database: ctynhua
+-- ------------------------------------------------------
+-- Server version	5.7.18-log
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `formula`
+--
+
+DROP TABLE IF EXISTS `formula`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `formula` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `material` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `Comment` varchar(2000) DEFAULT '',
+  `product` int(11) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `material_FK_idx` (`material`),
+  KEY `product_FK_idx` (`product`),
+  CONSTRAINT `material_FK` FOREIGN KEY (`material`) REFERENCES `material` (`ID`),
+  CONSTRAINT `product_FK` FOREIGN KEY (`product`) REFERENCES `product` (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `material`
+--
+
+DROP TABLE IF EXISTS `material`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `material` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Name` varchar(500) NOT NULL,
+  `Description` varchar(2000) DEFAULT '',
+  `Comment` varchar(2000) DEFAULT '',
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `id_UNIQUE` (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `paneinfo`
+--
+
+DROP TABLE IF EXISTS `paneinfo`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `paneinfo` (
   `PaneID` int(11) NOT NULL,
   `Title` varchar(200) DEFAULT '',
   `ViewQuery` varchar(2000) DEFAULT '',
@@ -10,7 +72,15 @@
   PRIMARY KEY (`PaneID`),
   UNIQUE KEY `PaneID_UNIQUE` (`PaneID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Table structure for table `partner`
+--
+
+DROP TABLE IF EXISTS `partner`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `partner` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `Name` varchar(500) NOT NULL,
@@ -20,8 +90,16 @@ CREATE TABLE `partner` (
   `Email` varchar(2000) DEFAULT '',
   PRIMARY KEY (`ID`),
   UNIQUE KEY `id_UNIQUE` (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Table structure for table `product`
+--
+
+DROP TABLE IF EXISTS `product`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `product` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `Name` varchar(500) NOT NULL,
@@ -30,26 +108,15 @@ CREATE TABLE `product` (
   PRIMARY KEY (`ID`),
   UNIQUE KEY `id_UNIQUE` (`ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
-CREATE TABLE `material` (
-  `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `Name` varchar(500) NOT NULL,
-  `Description` varchar(2000) DEFAULT '',
-  `Comment` varchar(2000) DEFAULT '',
-  PRIMARY KEY (`ID`),
-  UNIQUE KEY `id_UNIQUE` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
-CREATE TABLE `formula` (
-  `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `material` int(11) NOT NULL,
-  `quantity` int(11) NOT NULL,
-  `Comment` varchar(2000) DEFAULT '',
-  `name` varchar(200) NOT NULL,
-  `product` int(11) DEFAULT NULL,
-  PRIMARY KEY (`ID`),
-  KEY `material_FK_idx` (`material`),
-  KEY `product_FK_idx` (`product`),
-  CONSTRAINT `material_FK` FOREIGN KEY (`material`) REFERENCES `material` (`ID`),
-  CONSTRAINT `product_FK` FOREIGN KEY (`product`) REFERENCES `product` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
+-- Dump completed on 2017-06-20  0:07:51

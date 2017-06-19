@@ -7,7 +7,6 @@ namespace Xuong_Nhua.Pane.Formula
     public class PaneFormula : PaneBase
     {
         public static string ColName_ID = "ID";
-        public static string ColName_Name = "Name";
         public static string ColName_ProductID = "Product ID";
         public static string ColName_ProductName = "Product";
         public static string ColName_MaterialID = "Material ID";
@@ -22,7 +21,7 @@ namespace Xuong_Nhua.Pane.Formula
 
         public override void SetColNames()
         {
-            ColNames = new string[] { ColName_ID, ColName_Name, ColName_ProductID, ColName_ProductName, ColName_MaterialID, ColName_MaterialName, ColName_Quantity, ColName_Comment };
+            ColNames = new string[] { ColName_ID, ColName_ProductID, ColName_ProductName, ColName_MaterialID, ColName_MaterialName, ColName_Quantity, ColName_Comment };
         }
 
         public override void SetColVisibility()
@@ -50,20 +49,19 @@ namespace Xuong_Nhua.Pane.Formula
         public override MySqlCommand CreateViewQueryCommand(object[] args)
         {
             MySqlCommand command = new MySqlCommand(PaneInfo.ViewQuery);
-            if (args.Length == 3)
+            if (args.Length == 2)
             {
-                command.Parameters.AddWithValue("NameInput", args[0]);
-                command.Parameters.AddWithValue("ProductInput", args[1]);
-                command.Parameters.AddWithValue("MaterialInput", args[2]);
+                command.Parameters.AddWithValue("ProductInput", args[0]);
+                command.Parameters.AddWithValue("MaterialInput", args[1]);
             }
             return command;
 
             /*
-            SELECT F.ID, F.name, F.material, M.name, F.quantity, F.Comment FROM formula as F,material as M, product as P
-            WHERE F.material = M.ID AND F.product = P.ID
-            AND F.material = COALESCE(@MaterialInput, F.material)
-            AND F.product = COALESCE(@ProductInput, F.product)
-            AND F.name LIKE CONCAT('%', @NameInpuy, '%') ORDER BY `Name`;
+            SELECT F.ID, F.product, P.name, F.material, M.name, F.quantity, F.Comment 
+            FROM formula as F,material as M, product as P 
+            WHERE F.material = M.ID AND F.product = P.ID 
+            AND F.material = COALESCE(@MaterialInput, F.material) 
+            AND F.product = COALESCE(@ProductInput, F.product) ORDER BY P.Name; 
             */
         }
 
@@ -72,7 +70,7 @@ namespace Xuong_Nhua.Pane.Formula
             DataView View = new DataView(dt);
             int productCount = View.ToTable(true, "product").Rows.Count;
             int materialCount = View.ToTable(true, "material").Rows.Count;
-            ((PaneFormulaInfo)PaneSumChild).SetInfo(dt.Rows.Count, productCount, materialCount);
+            ((PaneFormulaInfo)PaneSumChild).SetInfo(productCount, materialCount);
         }
 
         public override void FormatGrid()

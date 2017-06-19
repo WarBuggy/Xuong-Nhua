@@ -6,15 +6,11 @@ namespace Xuong_Nhua.Pane.Formula
 {
     class PaneFormulaSelect : PaneBaseSelect
     {
-        private PaneInputTextbox TxtName;
         private PaneInputComboBox CboProduct = new PaneInputComboBox("Product");
         private PaneInputComboBox CboMaterial = new PaneInputComboBox("Material");
 
         public PaneFormulaSelect()
         {
-            TxtName = new PaneInputTextbox("Name");
-            TxtName.SetTextbox("");
-            AddSelector(TxtName);
 
             string sql = "select 1 as sortcol, id, `name` from `product`";
             CboProduct.SetComboBox(sql, ThemeCombo.ALL_SELECT_MODE, "id", "name");
@@ -27,7 +23,7 @@ namespace Xuong_Nhua.Pane.Formula
 
         public override object[] GetParams()
         {
-            return new object[] { TxtName.GetInputValue(), CboProduct.GetInputValue(), CboMaterial.GetInputValue() };
+            return new object[] { CboProduct.GetInputValue(), CboMaterial.GetInputValue() };
         }
     }
 }
