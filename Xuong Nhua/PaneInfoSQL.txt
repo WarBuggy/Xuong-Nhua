@@ -16,12 +16,33 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `paneinfo`
+--
+
+DROP TABLE IF EXISTS `paneinfo`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `paneinfo` (
+  `PaneID` int(11) NOT NULL,
+  `Title` varchar(200) DEFAULT '',
+  `ViewQuery` varchar(2000) DEFAULT '',
+  `InsertQuery` varchar(1000) DEFAULT '',
+  `UpdateQuery` varchar(1000) DEFAULT '',
+  `DeleteQuery` varchar(1000) DEFAULT '',
+  `Comment` varchar(1000) DEFAULT '',
+  `LocalName` varchar(200) DEFAULT '',
+  PRIMARY KEY (`PaneID`),
+  UNIQUE KEY `PaneID_UNIQUE` (`PaneID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Dumping data for table `paneinfo`
 --
 
 LOCK TABLES `paneinfo` WRITE;
 /*!40000 ALTER TABLE `paneinfo` DISABLE KEYS */;
-INSERT INTO `paneinfo` VALUES (5,'Partners Management','SELECT `partner`.`ID`,`partner`.`Name`,`partner`.`Description`,`partner`.`phone`, `partner`.`email`,`partner`.`Comment` FROM `ctynhua`.`partner` WHERE `partner`.`Name` LIKE CONCAT(\'%\',@NameInput,\'%\') ORDER BY `Name`','INSERT INTO `ctynhua`.`partner` (`Name`,`Description`,`phone`, `email`,`Comment`) VALUES (@NameInput, @DescInput, @PhoneInput, @EmailInput, @CommentInput);','UPDATE `ctynhua`.`partner` SET `Name` = @NameInput,`Description` = @DescInput,`Phone`=@PhoneInput, `Email`=@EmailInput,`Comment` = @CommentInput WHERE ID=@ID','DELETE FROM PARTNER WHERE ID=','','partner'),(6,'Products Management','SELECT `product`.`ID`,`product`.`Name`,`product`.`Description`, `product`.`Comment` FROM `ctynhua`.`product` WHERE `product`.`Name` LIKE CONCAT(\'%\',@NameInput,\'%\') ORDER BY `Name`','INSERT INTO `ctynhua`.`product` (`Name`,`Description`,`Comment`) VALUES (@NameInput, @DescInput, @CommentInput);','UPDATE `ctynhua`.`product` SET `Name` = @NameInput,`Description` = @DescInput,`Comment` = @CommentInput WHERE ID=@ID','DELETE FROM PRODUCT WHERE ID=','','product'),(7,'Materials Management','SELECT `ID`, `Name`, `Description`, `Comment` FROM `ctynhua`.`material` WHERE `Name` LIKE CONCAT(\'%\',@NameInput,\'%\') ORDER BY `Name`','INSERT INTO `ctynhua`.`material` (`Name`,`Description`,`Comment`) VALUES (@NameInput, @DescInput, @CommentInput);','UPDATE `ctynhua`.`material` SET `Name` = @NameInput,`Description` = @DescInput,`Comment` = @CommentInput WHERE ID=@ID','DELETE FROM material WHERE ID=','','material'),(8,'Formula Management','SELECT F.ID, F.product, P.name, F.material, M.name, F.quantity, F.Comment\n FROM formula as F,material as M, product as P\n WHERE F.material = M.ID AND F.product = P.ID\n AND F.material = COALESCE(@MaterialInput, F.material)\n AND F.product = COALESCE(@ProductInput, F.product) ORDER BY P.Name;','INSERT INTO formula (product, material, quantity, comment) VALUES (@ProductInput, @MaterialInput, @QuantityInput, @CommentInput); ','UPDATE `formula` SET product = @ProductInput, material = @MaterialInput, Quantity = @QuantityInput, Comment = @CommentInput WHERE ID=@ID','DELETE FROM formula WHERE ID=','','formula');
+INSERT INTO `paneinfo` VALUES (5,'Partners Management','SELECT `partner`.`ID`,`partner`.`Name`,`partner`.`Description`,`partner`.`phone`, `partner`.`email`,`partner`.`Comment` FROM `ctynhua`.`partner` WHERE `partner`.`Name` LIKE CONCAT(\'%\',@NameInput,\'%\') ORDER BY `Name`','INSERT INTO `ctynhua`.`partner` (`Name`,`Description`,`phone`, `email`,`Comment`) VALUES (@NameInput, @DescInput, @PhoneInput, @EmailInput, @CommentInput);','UPDATE `ctynhua`.`partner` SET `Name` = @NameInput,`Description` = @DescInput,`Phone`=@PhoneInput, `Email`=@EmailInput,`Comment` = @CommentInput WHERE ID=@ID','DELETE FROM PARTNER WHERE ID=','','partner'),(6,'Products Management','SELECT `product`.`ID`,`product`.`Name`,`product`.`Description`, `product`.`Comment` FROM `ctynhua`.`product` WHERE `product`.`Name` LIKE CONCAT(\'%\',@NameInput,\'%\') ORDER BY `Name`','INSERT INTO `ctynhua`.`product` (`Name`,`Description`,`Comment`) VALUES (@NameInput, @DescInput, @CommentInput);','UPDATE `ctynhua`.`product` SET `Name` = @NameInput,`Description` = @DescInput,`Comment` = @CommentInput WHERE ID=@ID','DELETE FROM PRODUCT WHERE ID=','','product'),(7,'Materials Management','SELECT M.`ID`, M.`Name`, M.`Description`, M.`type`, T.`name`, M.`Comment` \nFROM `ctynhua`.`material` as M, `mattype` as T \nWHERE M.`Name` LIKE CONCAT(\'%\',@NameInput,\'%\') AND M.`type` = COALESCE(@TypeInput, M.`type`) \nAND M.`type` = T.`ID` \nORDER BY M.`Name`','INSERT INTO `material` (`Name`,`Description`,`Comment`,`type`) VALUES (@NameInput, @DescInput, @CommentInput,@TypeInput)','UPDATE `material` SET `Name` = @NameInput,`Description` = @DescInput,`Comment` = @CommentInput, `type`=@TypeInput WHERE ID=@ID','DELETE FROM material WHERE ID=','','material'),(8,'Formula Management','SELECT F.ID, F.product, P.name, F.material, M.name, F.quantity, F.Comment\n FROM formula as F,material as M, product as P\n WHERE F.material = M.ID AND F.product = P.ID\n AND F.material = COALESCE(@MaterialInput, F.material)\n AND F.product = COALESCE(@ProductInput, F.product) ORDER BY P.Name;','INSERT INTO formula (product, material, quantity, comment) VALUES (@ProductInput, @MaterialInput, @QuantityInput, @CommentInput); ','UPDATE `formula` SET product = @ProductInput, material = @MaterialInput, Quantity = @QuantityInput, Comment = @CommentInput WHERE ID=@ID','DELETE FROM formula WHERE ID=','','formula'),(9,'Material Type Management','SELECT `ID`,`Name`,`Description`,`Comment` FROM `mattype` WHERE `Name` LIKE CONCAT(\'%\',@NameInput,\'%\') ORDER BY `Name`','INSERT INTO `mattype` (`Name`,`Description`,`Comment`) VALUES (@NameInput, @DescInput, @CommentInput);','UPDATE `mattype` SET `Name` = @NameInput,`Description` = @DescInput,`Comment` = @CommentInput WHERE ID=@ID','DELETE FROM mattype WHERE ID=','','material type');
 /*!40000 ALTER TABLE `paneinfo` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -34,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-06-20  0:09:08
+-- Dump completed on 2017-06-21  0:17:25
