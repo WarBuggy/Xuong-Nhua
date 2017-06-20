@@ -1,6 +1,9 @@
 ﻿using Xuong_Nhua.Pane.Base;
 using System.Data;
 using MySql.Data.MySqlClient;
+using System.Linq;
+using System.Windows.Forms;
+using System;
 
 namespace Xuong_Nhua.Pane.Formula
 {
@@ -70,7 +73,8 @@ namespace Xuong_Nhua.Pane.Formula
             DataView View = new DataView(dt);
             int productCount = View.ToTable(true, "product").Rows.Count;
             int materialCount = View.ToTable(true, "material").Rows.Count;
-            ((PaneFormulaInfo)PaneSumChild).SetInfo(productCount, materialCount);
+            int total = Grid.Rows.Cast<DataGridViewRow>().Sum(t => Convert.ToInt32(t.Cells[PaneFormula.ColName_Quantity].Value));
+            ((PaneFormulaInfo)PaneSumChild).SetInfo(productCount, materialCount, total);
         }
 
         public override void FormatGrid()
