@@ -2,25 +2,23 @@
 using System.Data;
 using MySql.Data.MySqlClient;
 
-namespace Xuong_Nhua.Pane.Partner
+namespace Xuong_Nhua.Pane.MatType
 {
-    public class PanePartner : PaneBase
+    public class PaneMatType : PaneBase
     {
         public static string ColName_ID = "ID";
         public static string ColName_Name = "Name";
         public static string ColName_Desc = "Description";
-        public static string ColName_Phone = "Phone";
-        public static string ColName_Email = "Email";
         public static string ColName_Comment = "Comment";
 
         public override void SetPANEID()
         {
-            PANEID = Program.PANE_PARTNER_ID;
+            PANEID = Program.PANE_MATTYPE_ID;
         }
 
         public override void SetColNames()
         {
-            ColNames = new string[] { ColName_ID, ColName_Name, ColName_Desc, ColName_Phone, ColName_Email, ColName_Comment };
+            ColNames = new string[] { ColName_ID, ColName_Name, ColName_Desc, ColName_Comment };
         }
 
         public override void SetColVisibility()
@@ -30,17 +28,17 @@ namespace Xuong_Nhua.Pane.Partner
 
         public override void SetPaneSum()
         {
-            PaneSumChild = new PanePartnerInfo();
+            PaneSumChild = new PaneMatTypeInfo();
         }
 
         public override void SetPaneSelect()
         {
-            PaneSelectChild = new PanePartnerSelect();
+            PaneSelectChild = new PaneMatTypeSelect();
         }
 
         public override void SetPaneUpdate()
         {
-            PaneUpdateChild = new PanePartnerUpdate(PaneInfo);
+            PaneUpdateChild = new PaneMatTypeUpdate(PaneInfo);
         }
 
         public override MySqlCommand CreateViewQueryCommand(object[] args)
@@ -52,12 +50,12 @@ namespace Xuong_Nhua.Pane.Partner
             }
             return command;
 
-            // SELECT `partner`.`ID`,`partner`.`Name`,`partner`.`Description`,`partner`.`phone`, `partner`.`email`,`partner`.`Comment` FROM `ctynhua`.`partner` WHERE `partner`.`Name` LIKE CONCAT('%',@NameInput,'%') ORDER BY `Name`
+            // SELECT `ID`,`Name`,`Description`,`Comment` FROM `mattype` WHERE `Name` LIKE CONCAT('%',@NameInput,'%') ORDER BY `Name`
         }
 
         public override void PopulatePaneSummary(ref DataTable dt)
         {
-            ((PanePartnerInfo)PaneSumChild).SetInfo(dt.Rows.Count);
+            ((PaneMatTypeInfo)PaneSumChild).SetInfo(dt.Rows.Count);
         }
 
         public override void FormatGrid()

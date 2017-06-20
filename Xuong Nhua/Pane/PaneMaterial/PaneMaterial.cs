@@ -9,6 +9,8 @@ namespace Xuong_Nhua.Pane.Material
         public static string ColName_ID = "ID";
         public static string ColName_Name = "Name";
         public static string ColName_Desc = "Description";
+        public static string ColName_TypeID = "TypeID";
+        public static string ColName_Type = "TypeID";
         public static string ColName_Comment = "Comment";
 
         public override void SetPANEID()
@@ -18,12 +20,13 @@ namespace Xuong_Nhua.Pane.Material
 
         public override void SetColNames()
         {
-            ColNames = new string[] { ColName_ID, ColName_Name, ColName_Desc, ColName_Comment };
+            ColNames = new string[] { ColName_ID, ColName_Name, ColName_Desc, ColName_TypeID, ColName_Type, ColName_Comment };
         }
 
         public override void SetColVisibility()
         {
             Grid.Columns[ColName_ID].Visible = false;
+            Grid.Columns[ColName_TypeID].Visible = false;
         }
 
         public override void SetPaneSum()
@@ -44,13 +47,20 @@ namespace Xuong_Nhua.Pane.Material
         public override MySqlCommand CreateViewQueryCommand(object[] args)
         {
             MySqlCommand command = new MySqlCommand(PaneInfo.ViewQuery);
-            if (args.Length == 1)
+            if (args.Length == 2)
             {
                 command.Parameters.AddWithValue("NameInput", args[0]);
+                command.Parameters.AddWithValue("TypeInput", args[1]);
             }
             return command;
 
-            // SELECT `ID`, `Name`, `Description`, `Comment` FROM `ctynhua`.`material` WHERE `Name` LIKE CONCAT('%',@NameInput,'%') ORDER BY `Name`
+            /*
+            SELECT M.`ID`, M.`Name`, M.`Description`, M.`type`, T.`name`, M.`Comment` 
+            FROM `ctynhua`.`material` as M, `mattype` as T 
+            WHERE M.`Name` LIKE CONCAT('%',@NameInput,'%') AND M.`type` = COALESCE(@TypeInput, M.`type`) 
+            AND M.`type` = T.`ID` 
+            ORDER BY M.`Name`
+            */
         }
 
         public override void PopulatePaneSummary(ref DataTable dt)

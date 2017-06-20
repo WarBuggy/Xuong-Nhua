@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using Xuong_Nhua.Pane.Base;
+using Xuong_Nhua.Pane.MatType;
 using Xuong_Nhua.Pane.Material;
 using Xuong_Nhua.Pane.Partner;
 using Xuong_Nhua.Pane.Product;
@@ -48,17 +49,6 @@ namespace Xuong_Nhua
             DisplayInPaneMain(Program.PaneProduct);
         }
 
-        private void materialsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (Program.PaneMaterial == null)
-            {
-                Program.PaneMaterial = new PaneMaterial();
-                Program.PaneMaterial.Dock = DockStyle.Fill;
-                Program.PaneMaterial.LoadPane();
-            }
-            DisplayInPaneMain(Program.PaneMaterial);
-        }
-
         private void formulasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (Program.PaneFormula == null)
@@ -68,6 +58,28 @@ namespace Xuong_Nhua
                 Program.PaneFormula.LoadPane();
             }
             DisplayInPaneMain(Program.PaneFormula);
+        }
+
+        private void typesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Program.PaneMatType == null)
+            {
+                Program.PaneMatType = new PaneMatType();
+                Program.PaneMatType.Dock = DockStyle.Fill;
+                Program.PaneMatType.LoadPane();
+            }
+            DisplayInPaneMain(Program.PaneMatType);
+        }
+
+        private void listToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (Program.PaneMaterial == null)
+            {
+                Program.PaneMaterial = new PaneMaterial();
+                Program.PaneMaterial.Dock = DockStyle.Fill;
+                Program.PaneMaterial.LoadPane();
+            }
+            DisplayInPaneMain(Program.PaneMaterial);
         }
     }
 }

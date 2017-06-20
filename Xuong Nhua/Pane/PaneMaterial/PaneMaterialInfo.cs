@@ -1,5 +1,4 @@
-﻿using System;
-using Xuong_Nhua.Pane.Base;
+﻿using Xuong_Nhua.Pane.Base;
 
 namespace Xuong_Nhua.Pane.Material
 {

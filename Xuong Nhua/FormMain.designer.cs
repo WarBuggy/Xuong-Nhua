@@ -32,17 +32,21 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.generalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.partnersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.materialsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.productsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.PaneMain = new System.Windows.Forms.Panel();
             this.formulasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.PaneMain = new System.Windows.Forms.Panel();
+            this.materialsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.typesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.inputToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.generalToolStripMenuItem});
+            this.generalToolStripMenuItem,
+            this.materialsToolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1354, 24);
@@ -53,7 +57,6 @@
             // 
             this.generalToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.partnersToolStripMenuItem,
-            this.materialsToolStripMenuItem,
             this.productsToolStripMenuItem,
             this.formulasToolStripMenuItem});
             this.generalToolStripMenuItem.Name = "generalToolStripMenuItem";
@@ -67,19 +70,19 @@
             this.partnersToolStripMenuItem.Text = "Partners";
             this.partnersToolStripMenuItem.Click += new System.EventHandler(this.partnersToolStripMenuItem_Click);
             // 
-            // materialsToolStripMenuItem
-            // 
-            this.materialsToolStripMenuItem.Name = "materialsToolStripMenuItem";
-            this.materialsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.materialsToolStripMenuItem.Text = "Materials";
-            this.materialsToolStripMenuItem.Click += new System.EventHandler(this.materialsToolStripMenuItem_Click);
-            // 
             // productsToolStripMenuItem
             // 
             this.productsToolStripMenuItem.Name = "productsToolStripMenuItem";
             this.productsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.productsToolStripMenuItem.Text = "Products";
             this.productsToolStripMenuItem.Click += new System.EventHandler(this.productsToolStripMenuItem_Click);
+            // 
+            // formulasToolStripMenuItem
+            // 
+            this.formulasToolStripMenuItem.Name = "formulasToolStripMenuItem";
+            this.formulasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.formulasToolStripMenuItem.Text = "Formulas";
+            this.formulasToolStripMenuItem.Click += new System.EventHandler(this.formulasToolStripMenuItem_Click);
             // 
             // PaneMain
             // 
@@ -89,12 +92,35 @@
             this.PaneMain.Size = new System.Drawing.Size(1354, 357);
             this.PaneMain.TabIndex = 1;
             // 
-            // formulasToolStripMenuItem
+            // materialsToolStripMenuItem1
             // 
-            this.formulasToolStripMenuItem.Name = "formulasToolStripMenuItem";
-            this.formulasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.formulasToolStripMenuItem.Text = "Formulas";
-            this.formulasToolStripMenuItem.Click += new System.EventHandler(this.formulasToolStripMenuItem_Click);
+            this.materialsToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.typesToolStripMenuItem,
+            this.listToolStripMenuItem1,
+            this.inputToolStripMenuItem1});
+            this.materialsToolStripMenuItem1.Name = "materialsToolStripMenuItem1";
+            this.materialsToolStripMenuItem1.Size = new System.Drawing.Size(67, 20);
+            this.materialsToolStripMenuItem1.Text = "Materials";
+            // 
+            // typesToolStripMenuItem
+            // 
+            this.typesToolStripMenuItem.Name = "typesToolStripMenuItem";
+            this.typesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.typesToolStripMenuItem.Text = "Types";
+            this.typesToolStripMenuItem.Click += new System.EventHandler(this.typesToolStripMenuItem_Click);
+            // 
+            // listToolStripMenuItem1
+            // 
+            this.listToolStripMenuItem1.Name = "listToolStripMenuItem1";
+            this.listToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.listToolStripMenuItem1.Text = "List";
+            this.listToolStripMenuItem1.Click += new System.EventHandler(this.listToolStripMenuItem1_Click);
+            // 
+            // inputToolStripMenuItem1
+            // 
+            this.inputToolStripMenuItem1.Name = "inputToolStripMenuItem1";
+            this.inputToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.inputToolStripMenuItem1.Text = "Input";
             // 
             // FormMain
             // 
@@ -123,7 +149,10 @@
         private System.Windows.Forms.ToolStripMenuItem generalToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem partnersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem productsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem materialsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem formulasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem materialsToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem typesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem listToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem inputToolStripMenuItem1;
     }
 }

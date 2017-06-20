@@ -1,13 +1,13 @@
 ﻿using Xuong_Nhua.Pane.Base;
 using Xuong_Nhua.InputControl;
 
-namespace Xuong_Nhua.Pane.Partner
+namespace Xuong_Nhua.Pane.MatType
 {
-    class PanePartnerSelect : PaneBaseSelect
+    class PaneMatTypeSelect : PaneBaseSelect
     {
         private PaneInputTextbox TxtName;
 
-        public PanePartnerSelect()
+        public PaneMatTypeSelect()
         {
             TxtName = new PaneInputTextbox("Name");
             TxtName.SetTextbox("");

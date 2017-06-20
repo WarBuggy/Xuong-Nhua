@@ -1,5 +1,4 @@
-﻿using System;
-using Xuong_Nhua.Theme;
+﻿using Xuong_Nhua.Theme;
 using System.Drawing;
 
 namespace Xuong_Nhua.InputControl

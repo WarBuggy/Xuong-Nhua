@@ -103,7 +103,9 @@
     <Compile Include="Pane\PaneFormula\PaneFormulaSelect.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Pane\PaneFormula\PaneFormulaUpdate.cs" />
+    <Compile Include="Pane\PaneFormula\PaneFormulaUpdate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Pane\PaneMaterial\PaneMaterial.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -114,6 +116,18 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Pane\PaneMaterial\PaneMaterialUpdate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pane\PaneMatType\PaneMatType.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pane\PaneMatType\PaneMatTypeInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pane\PaneMatType\PaneMatTypeSelect.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pane\PaneMatType\PaneMatTypeUpdate.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Pane\PanePartner\PanePartner.cs">

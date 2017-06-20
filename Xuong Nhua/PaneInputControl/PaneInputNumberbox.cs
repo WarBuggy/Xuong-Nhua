@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Xuong_Nhua.Theme;
+﻿using Xuong_Nhua.Theme;
 using System.Drawing;
 
 namespace Xuong_Nhua.InputControl

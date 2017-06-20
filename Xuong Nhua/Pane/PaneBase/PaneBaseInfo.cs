@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
-using System.Runtime.InteropServices;
 using Xuong_Nhua.Theme;
 
 namespace Xuong_Nhua.Pane.Base
