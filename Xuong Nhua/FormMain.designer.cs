@@ -121,6 +121,7 @@
             this.inputToolStripMenuItem1.Name = "inputToolStripMenuItem1";
             this.inputToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.inputToolStripMenuItem1.Text = "Input";
+            this.inputToolStripMenuItem1.Click += new System.EventHandler(this.inputToolStripMenuItem1_Click);
             // 
             // FormMain
             // 

@@ -118,6 +118,18 @@
     <Compile Include="Pane\PaneMaterial\PaneMaterialUpdate.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Pane\PaneMatIn\PaneMatInInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pane\PaneMatIn\PaneMatIn.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pane\PaneMatIn\PaneMatInSelect.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pane\PaneMatIn\PaneMatInUpdate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Pane\PaneMatType\PaneMatType.cs">
       <SubType>UserControl</SubType>
     </Compile>

@@ -5,6 +5,7 @@ using Xuong_Nhua.Pane.MatType;
 using Xuong_Nhua.Pane.Product;
 using Xuong_Nhua.Pane.Material;
 using Xuong_Nhua.Pane.Formula;
+using Xuong_Nhua.Pane.MatIn;
 
 namespace Xuong_Nhua
 {
@@ -17,12 +18,14 @@ namespace Xuong_Nhua
         public static int PANE_MATERIAL_ID = 7;
         public static int PANE_FORMULA_ID = 8;
         public static int PANE_MATTYPE_ID = 9;
+        public static int PANE_MATIN_ID = 10;
         
         public static PanePartner PanePartner = null;
         public static PaneProduct PaneProduct = null;
         public static PaneMaterial PaneMaterial = null;
         public static PaneFormula PaneFormula = null;
         public static PaneMatType PaneMatType = null;
+        public static PaneMatIn PaneMatIn = null;
 
 
         /// <summary>
