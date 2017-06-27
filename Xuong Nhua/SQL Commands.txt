@@ -79,6 +79,25 @@ CREATE TABLE `matin` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Table structure for table `matout`
+--
+
+DROP TABLE IF EXISTS `matout`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `matout` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `date` datetime NOT NULL,
+  `inid` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `id_UNIQUE` (`ID`),
+  KEY `matin_FK_idx` (`inid`),
+  CONSTRAINT `matin_FK` FOREIGN KEY (`inid`) REFERENCES `matin` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `mattype`
 --
 
@@ -151,6 +170,42 @@ CREATE TABLE `product` (
   UNIQUE KEY `id_UNIQUE` (`ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `session`
+--
+
+DROP TABLE IF EXISTS `session`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `session` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) NOT NULL,
+  `description` varchar(200) NOT NULL DEFAULT '',
+  `length` int(11) NOT NULL,
+  `comment` varchar(500) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf16;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `worker`
+--
+
+DROP TABLE IF EXISTS `worker`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `worker` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `sirname` varchar(100) NOT NULL,
+  `middlename` varchar(200) NOT NULL,
+  `givenname` varchar(100) NOT NULL,
+  `contact` varchar(200) NOT NULL DEFAULT '',
+  `salary` int(11) NOT NULL,
+  `comment` varchar(500) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf16;
+/*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -161,4 +216,4 @@ CREATE TABLE `product` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-06-23  9:21:05
+-- Dump completed on 2017-06-27 17:25:42

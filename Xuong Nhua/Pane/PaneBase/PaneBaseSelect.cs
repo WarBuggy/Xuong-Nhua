@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 using Xuong_Nhua.InputControl;
 
 namespace Xuong_Nhua.Pane.Base
@@ -31,5 +32,16 @@ namespace Xuong_Nhua.Pane.Base
         }
 
         public abstract object[] GetParams();
+
+        internal void ResetParameter()
+        {
+            foreach (Control InputControl in Pane.Controls)
+            {
+                if (InputControl is PaneInputControl)
+                {
+                    ((PaneInputControl)InputControl).ResetValue();
+                }
+            }
+        }
     }
 }

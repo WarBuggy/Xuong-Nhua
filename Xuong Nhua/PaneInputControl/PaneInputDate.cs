@@ -7,8 +7,8 @@ namespace Xuong_Nhua.InputControl
     public class PaneInputDate : PaneInputControl
     {
         public ThemeDateBox Datebox { get; set; }
-        private bool isRequired;
-        private static int DefaultLength = 100;
+        public bool isRequired;
+        public static int DefaultLength = 100;
 
         public PaneInputDate(string inputCaption)
             : base(inputCaption)

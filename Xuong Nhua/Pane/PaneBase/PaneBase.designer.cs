@@ -35,6 +35,7 @@
             this.ButUpdate = new Xuong_Nhua.Theme.ThemeButton();
             this.ButInsert = new Xuong_Nhua.Theme.ThemeButton();
             this.ButView = new Xuong_Nhua.Theme.ThemeButton();
+            this.ButReset = new Xuong_Nhua.Theme.ThemeButton();
             this.PaneSum = new System.Windows.Forms.Panel();
             this.PaneSelect = new System.Windows.Forms.Panel();
             this.PaneInput = new System.Windows.Forms.Panel();
@@ -67,6 +68,7 @@
             this.PaneControl.Controls.Add(this.ButUpdate);
             this.PaneControl.Controls.Add(this.ButInsert);
             this.PaneControl.Controls.Add(this.ButView);
+            this.PaneControl.Controls.Add(this.ButReset);
             this.PaneControl.Dock = System.Windows.Forms.DockStyle.Top;
             this.PaneControl.Location = new System.Drawing.Point(0, 634);
             this.PaneControl.Name = "PaneControl";
@@ -75,31 +77,38 @@
             // 
             // ButDelete
             // 
-            this.ButDelete.Location = new System.Drawing.Point(348, 3);
+            this.ButDelete.Location = new System.Drawing.Point(460, 3);
             this.ButDelete.Name = "ButDelete";
             this.ButDelete.Size = new System.Drawing.Size(106, 26);
-            this.ButDelete.TabIndex = 3;
+            this.ButDelete.TabIndex = 4;
             // 
             // ButUpdate
             // 
-            this.ButUpdate.Location = new System.Drawing.Point(236, 3);
+            this.ButUpdate.Location = new System.Drawing.Point(348, 3);
             this.ButUpdate.Name = "ButUpdate";
             this.ButUpdate.Size = new System.Drawing.Size(106, 26);
-            this.ButUpdate.TabIndex = 2;
+            this.ButUpdate.TabIndex = 3;
             // 
             // ButInsert
             // 
-            this.ButInsert.Location = new System.Drawing.Point(124, 3);
+            this.ButInsert.Location = new System.Drawing.Point(236, 3);
             this.ButInsert.Name = "ButInsert";
             this.ButInsert.Size = new System.Drawing.Size(106, 26);
-            this.ButInsert.TabIndex = 1;
+            this.ButInsert.TabIndex = 2;
             // 
             // ButView
             // 
-            this.ButView.Location = new System.Drawing.Point(12, 3);
+            this.ButView.Location = new System.Drawing.Point(124, 3);
             this.ButView.Name = "ButView";
             this.ButView.Size = new System.Drawing.Size(106, 26);
-            this.ButView.TabIndex = 0;
+            this.ButView.TabIndex = 1;
+            // 
+            // ButView
+            // 
+            this.ButReset.Location = new System.Drawing.Point(12, 3);
+            this.ButReset.Name = "ButReset";
+            this.ButReset.Size = new System.Drawing.Size(106, 26);
+            this.ButReset.TabIndex = 0;
             // 
             // PaneSum
             // 
@@ -157,6 +166,7 @@
         private Theme.ThemeButton ButDelete;
         private Theme.ThemeButton ButUpdate;
         private Theme.ThemeButton ButInsert;
+        private Theme.ThemeButton ButReset;
         private Theme.ThemeButton ButView;
         private System.Windows.Forms.Panel PaneSum;
         private System.Windows.Forms.Panel PaneSelect;

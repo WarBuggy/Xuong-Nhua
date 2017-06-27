@@ -7,7 +7,7 @@ namespace Xuong_Nhua.Pane.MatIn
 {
     class PaneMatInSelect : PaneBaseSelect
     {
-        private PaneInputDate DatFrom = new PaneInputDate("From");
+        private PaneInputDateFrom DatFrom = new PaneInputDateFrom("From");
         private PaneInputDate DatUntil = new PaneInputDate("Until");
         private PaneInputTextbox TxtLot = new PaneInputTextbox("Lot");
         private PaneInputComboBox CboPartner = new PaneInputComboBox("Partner");

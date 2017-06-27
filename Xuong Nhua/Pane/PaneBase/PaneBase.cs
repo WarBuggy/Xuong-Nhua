@@ -23,10 +23,12 @@ namespace Xuong_Nhua.Pane.Base
         public bool SHOW_INSERT_BUTTON = true;
         public bool SHOW_EDIT_BUTTON = true;
         public bool SHOW_DELETE_BUTTON = true;
+        public bool SHOW_RESET_BUTTON = true;
 
         public string INSERT_BUTTON_LABEL = "&Add";
         public string DELETE_BUTTON_LABEL = "&Delete";
         public string EDIT_BUTTON_LABEL = "&Edit";
+        public string RESET_BUTTON_LABEL = "&Reset";
 
         public bool ALLOW_MULTIPLE_SELECTION_ON_GRID = false;
 
@@ -178,6 +180,21 @@ namespace Xuong_Nhua.Pane.Base
             }
         }
 
+        private void SetupButReset()
+        {
+            ButReset.Visible = SHOW_RESET_BUTTON;
+            if (SHOW_RESET_BUTTON)
+            {
+                ButReset.SetButtonText(RESET_BUTTON_LABEL);
+                ButReset.GetButton().Click += new System.EventHandler(this.ButReset_Click);
+            }
+        }
+
+        private void ButReset_Click(object sender, EventArgs e)
+        {
+            PaneSelectChild.ResetParameter();
+        }
+
         private void ButInsert_Click(object sender, EventArgs e)
         {
             PaneUpdateChild.ShowPane(PaneUpdate.MODE_INSERT);
@@ -238,6 +255,7 @@ namespace Xuong_Nhua.Pane.Base
         private void SetupButtons()
         {
             SetButtonsVisibility();
+            SetupButReset();
             SetupButView();
             SetupButInsert();
             SetupButUpdate();

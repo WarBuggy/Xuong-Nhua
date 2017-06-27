@@ -6,6 +6,8 @@ using Xuong_Nhua.Pane.Product;
 using Xuong_Nhua.Pane.Material;
 using Xuong_Nhua.Pane.Formula;
 using Xuong_Nhua.Pane.MatIn;
+using Xuong_Nhua.Pane.Session;
+using Xuong_Nhua.Pane.Worker;
 
 namespace Xuong_Nhua
 {
@@ -19,14 +21,17 @@ namespace Xuong_Nhua
         public static int PANE_FORMULA_ID = 8;
         public static int PANE_MATTYPE_ID = 9;
         public static int PANE_MATIN_ID = 10;
-        
+        public static int PANE_SESSION_ID = 11;
+        public static int PANE_WORKER_ID = 12;
+
         public static PanePartner PanePartner = null;
         public static PaneProduct PaneProduct = null;
         public static PaneMaterial PaneMaterial = null;
         public static PaneFormula PaneFormula = null;
         public static PaneMatType PaneMatType = null;
         public static PaneMatIn PaneMatIn = null;
-
+        public static PaneSession PaneSession = null;
+        public static PaneWorker PaneWorker = null;
 
         /// <summary>
         /// The main entry point for the application.

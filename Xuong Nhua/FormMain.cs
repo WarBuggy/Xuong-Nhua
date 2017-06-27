@@ -7,6 +7,8 @@ using Xuong_Nhua.Pane.Partner;
 using Xuong_Nhua.Pane.Product;
 using Xuong_Nhua.Pane.Formula;
 using Xuong_Nhua.Pane.MatIn;
+using Xuong_Nhua.Pane.Session;
+using Xuong_Nhua.Pane.Worker;
 
 namespace Xuong_Nhua
 {
@@ -92,6 +94,28 @@ namespace Xuong_Nhua
                 Program.PaneMatIn.LoadPane();
             }
             DisplayInPaneMain(Program.PaneMatIn);
+        }
+
+        private void sessionsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Program.PaneSession == null)
+            {
+                Program.PaneSession = new PaneSession();
+                Program.PaneSession.Dock = DockStyle.Fill;
+                Program.PaneSession.LoadPane();
+            }
+            DisplayInPaneMain(Program.PaneSession);
+        }
+
+        private void workersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Program.PaneWorker == null)
+            {
+                Program.PaneWorker = new PaneWorker();
+                Program.PaneWorker.Dock = DockStyle.Fill;
+                Program.PaneWorker.LoadPane();
+            }
+            DisplayInPaneMain(Program.PaneWorker);
         }
     }
 }
