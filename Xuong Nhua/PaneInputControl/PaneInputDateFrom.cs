@@ -5,10 +5,13 @@ namespace Xuong_Nhua.InputControl
 {
     class PaneInputDateFrom : PaneInputDate
     {
-        public PaneInputDateFrom(string inputCaption)
-            : base(inputCaption)
+        private int MonthDifference = 0;
+
+        public PaneInputDateFrom(string inputCaption, int months)
+    : base(inputCaption)
         {
-            ControlDefaultValue = DateTime.Now.AddYears(-1);
+            MonthDifference = months;
+            ControlDefaultValue = DateTime.Now.AddMonths(MonthDifference);
         }
 
         public new void SetDateBox(DateTime? initValue = null, bool required = true)
@@ -16,7 +19,7 @@ namespace Xuong_Nhua.InputControl
             SetLabel(Caption);
             if (initValue == null)
             {
-                InitValue = DateTime.Now.AddYears(-1);
+                InitValue = DateTime.Now.AddMonths(MonthDifference);
             }
             else
             {

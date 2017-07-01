@@ -8,6 +8,8 @@ using Xuong_Nhua.Pane.Formula;
 using Xuong_Nhua.Pane.MatIn;
 using Xuong_Nhua.Pane.Session;
 using Xuong_Nhua.Pane.Worker;
+using Xuong_Nhua.Pane.Production;
+using Xuong_Nhua.Pane.MatInventory;
 
 namespace Xuong_Nhua
 {
@@ -23,6 +25,8 @@ namespace Xuong_Nhua
         public static int PANE_MATIN_ID = 10;
         public static int PANE_SESSION_ID = 11;
         public static int PANE_WORKER_ID = 12;
+        public static int PANE_PRODUCTION_ID = 13;
+        public static int PANE_MATINVENTORY_ID = 14;
 
         public static PanePartner PanePartner = null;
         public static PaneProduct PaneProduct = null;
@@ -32,6 +36,8 @@ namespace Xuong_Nhua
         public static PaneMatIn PaneMatIn = null;
         public static PaneSession PaneSession = null;
         public static PaneWorker PaneWorker = null;
+        public static PaneProduction PaneProduction = null;
+        public static PaneMatInventory PaneMatInventory = null;
 
         /// <summary>
         /// The main entry point for the application.

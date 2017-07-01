@@ -3,20 +3,19 @@ using Xuong_Nhua.Theme;
 using Xuong_Nhua.InputControl;
 using System;
 
-namespace Xuong_Nhua.Pane.MatIn
+namespace Xuong_Nhua.Pane.MatInventory
 {
-    class PaneMatInSelect : PaneBaseSelect
+    class PaneMatInventorySelect : PaneBaseSelect
     {
-        private PaneInputDateFrom DatFrom = new PaneInputDateFrom("From", -12);
+        private PaneInputDateFrom DatFrom = new PaneInputDateFrom("From", -1);
         private PaneInputDate DatUntil = new PaneInputDate("Until");
         private PaneInputTextbox TxtLot = new PaneInputTextbox("Lot");
-        private PaneInputComboBox CboPartner = new PaneInputComboBox("Partner");
         private PaneInputComboBox CboMaterial = new PaneInputComboBox("Material");
 
-        public PaneMatInSelect()
+        public PaneMatInventorySelect()
         {
             DatFrom.SetDateBox();
-            DatFrom.Datebox.Value = DateTime.Now.AddYears(-1);
+            DatFrom.Datebox.Value = DateTime.Now.AddMonths(-1);
             AddSelector(DatFrom);
 
             DatUntil.SetDateBox();
@@ -30,16 +29,11 @@ namespace Xuong_Nhua.Pane.MatIn
             string sql = "select 1 as sortcol, id, `name` from `material`";
             CboMaterial.SetComboBox(sql, ThemeCombo.ALL_SELECT_MODE, "id", "name");
             AddSelector(CboMaterial);
-
-
-            sql = "select 1 as sortcol, id, `name` from `partner`";
-            CboPartner.SetComboBox(sql, ThemeCombo.ALL_SELECT_MODE, "id", "name");
-            AddSelector(CboPartner);
         }
 
         public override object[] GetParams()
         {
-            return new object[] { DatFrom.GetInputValue(), DatUntil.GetInputValue(), TxtLot.GetInputValue(), CboMaterial.GetInputValue(), CboPartner.GetInputValue() };
+            return new object[] { DatFrom.GetInputValue(), DatUntil.GetInputValue(), TxtLot.GetInputValue(), CboMaterial.GetInputValue() };
         }
     }
 }

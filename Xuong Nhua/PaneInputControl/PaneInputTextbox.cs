@@ -31,6 +31,16 @@ namespace Xuong_Nhua.InputControl
             AddComponent(Textbox);
         }
 
+        public void SetReadOnly(bool isReadOnly)
+        {
+            Textbox.ReadOnly = isReadOnly;
+        }
+
+        public void SetEnable(bool isEnable)
+        {
+            Textbox.Enabled = isEnable;
+        }
+
         public override void ResetValue()
         {
             Textbox.Text = InitValue.ToString();

@@ -121,7 +121,16 @@
     <Compile Include="Pane\PaneMaterial\PaneMaterialUpdate.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Pane\PaneMatInventory\PaneMatInventorySelect.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pane\PaneMatInventory\PaneMatInventoryInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Pane\PaneMatInventory\PaneMatInventory.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pane\PaneMatInventory\PaneMatInventoryUpdate.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Pane\PaneMatIn\PaneMatInInfo.cs">
@@ -136,6 +145,10 @@
     <Compile Include="Pane\PaneMatIn\PaneMatInUpdate.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Pane\PaneMatOut\MatOut.cs" />
+    <Compile Include="Pane\PaneMatOut\MatOutInfo.cs" />
+    <Compile Include="Pane\PaneMatOut\MatOutSelect.cs" />
+    <Compile Include="Pane\PaneMatOut\MatOutUpdate.cs" />
     <Compile Include="Pane\PaneMatType\PaneMatType.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -158,6 +171,18 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Pane\PanePartner\PanePartnerUpdate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pane\PaneProduction\PaneProduction.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pane\PaneProduction\PaneProductionInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pane\PaneProduction\PaneProductionSelect.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pane\PaneProduction\PaneProductionUpdate.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Pane\PaneProduct\PaneProduct.cs">
@@ -272,8 +297,6 @@
     <Content Include="PaneInfoSQL.txt" />
     <Content Include="SQL Commands.txt" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Pane\PaneMatOut\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
