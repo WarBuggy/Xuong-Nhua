@@ -1,4 +1,5 @@
 ﻿using Xuong_Nhua.Pane.Base;
+using System.Drawing;
 
 namespace Xuong_Nhua.Pane.Partner
 {
@@ -6,7 +7,7 @@ namespace Xuong_Nhua.Pane.Partner
     {
         public PanePartnerInfo()
         {
-            AddLabel(new object[] { "Partner", "Partner(s): ", "0" });
+            AddLabel(new object[] { "Partner", "Partner(s): ", "0", Color.Orange });
         }
 
         public void SetInfo(int partner)

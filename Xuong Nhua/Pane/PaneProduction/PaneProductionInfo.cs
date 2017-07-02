@@ -9,7 +9,7 @@ namespace Xuong_Nhua.Pane.Production
         {
             AddLabel(new object[] { "Production", "Productions(s): ", "0" });
             AddLabel(new object[] { "Worker", "Worker(s): ", "0", Color.DarkGoldenrod });
-            AddLabel(new object[] { "Product", "Product(s): ", "0", Color.Orange });
+            AddLabel(new object[] { "Product", "Product(s): ", "0", Color.ForestGreen });
             AddLabel(new object[] { "Quantity", "Total Qty(g): ", "0", Color.PaleVioletRed });
         }
 

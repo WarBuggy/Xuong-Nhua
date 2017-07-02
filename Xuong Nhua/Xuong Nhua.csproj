@@ -145,10 +145,18 @@
     <Compile Include="Pane\PaneMatIn\PaneMatInUpdate.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Pane\PaneMatOut\MatOut.cs" />
-    <Compile Include="Pane\PaneMatOut\MatOutInfo.cs" />
-    <Compile Include="Pane\PaneMatOut\MatOutSelect.cs" />
-    <Compile Include="Pane\PaneMatOut\MatOutUpdate.cs" />
+    <Compile Include="Pane\PaneMatOut\PaneMatOut.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pane\PaneMatOut\PaneMatOutInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pane\PaneMatOut\PaneMatOutSelect.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pane\PaneMatOut\PaneMatOutUpdate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Pane\PaneMatType\PaneMatType.cs">
       <SubType>UserControl</SubType>
     </Compile>

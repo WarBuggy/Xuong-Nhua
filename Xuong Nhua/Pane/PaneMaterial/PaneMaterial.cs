@@ -70,6 +70,7 @@ namespace Xuong_Nhua.Pane.Material
 
         public override void FormatGrid()
         {
+            Grid.Columns[ColName_Name].DefaultCellStyle.ForeColor = System.Drawing.Color.DarkCyan;
         }
     }
 }

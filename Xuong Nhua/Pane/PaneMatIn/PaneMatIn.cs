@@ -110,6 +110,8 @@ namespace Xuong_Nhua.Pane.MatIn
 
             Grid.Columns[ColName_Partner].DefaultCellStyle.ForeColor = System.Drawing.Color.Orange;
 
+            Grid.Columns[ColName_Material].DefaultCellStyle.ForeColor = System.Drawing.Color.DarkCyan;
+
             Grid.Columns[ColName_Date].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
         }
     }

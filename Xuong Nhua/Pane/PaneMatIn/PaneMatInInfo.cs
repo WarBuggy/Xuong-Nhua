@@ -8,7 +8,7 @@ namespace Xuong_Nhua.Pane.MatIn
         public PaneMatInInfo()
         {
             AddLabel(new object[] { "Lot", "Lot(s): ", "0" });
-            AddLabel(new object[] { "Material", "Material(s): ", "0" });
+            AddLabel(new object[] { "Material", "Material(s): ", "0", Color.DarkCyan });
             AddLabel(new object[] { "Quantity", "Total Qty(g): ", "0", Color.PaleVioletRed });
             AddLabel(new object[] { "Price", "Total price(/1000g): ", "0", Color.DarkBlue });
             AddLabel(new object[] { "Sum", "Sum(VND): ", "0", Color.Goldenrod });

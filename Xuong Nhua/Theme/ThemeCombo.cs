@@ -36,16 +36,20 @@ namespace Xuong_Nhua.Theme
             this.DataSource = null;
             this.Items.Clear();
 
+            string temp = "select 0 as sortcol, null as ";
             if (mode == ONE_SELECT_MODE)
             {
-                sql = "select 0 as sortcol, null as " + ValueName + ", '" + plsSelect + "' as " + MemberName + " UNION " + sql + " order by sortcol, `" + MemberName + "`";
-
+                temp = temp + ValueName + ", '" + plsSelect + "' as " + MemberName;
             }
             else if (mode == ALL_SELECT_MODE)
             {
-                sql = "select 0 as sortcol, null as " + ValueName + ", '" + allSelect + "' as " + MemberName + " UNION " + sql + " order by sortcol, `" + MemberName + "`";
+                temp = temp + ValueName + ", '" + allSelect + "' as " + MemberName;
             }
-            DataTable dt = Share.MySql.GetDataTable(sql);
+            if (sql.Length > 0)
+            {
+                temp = temp + " UNION " + sql + " order by sortcol, `" + MemberName + "`";
+            }
+            DataTable dt = Share.MySql.GetDataTable(temp);
             this.DataSource = dt;
             this.ValueMember = ValueName;
             this.DisplayMember = MemberName;

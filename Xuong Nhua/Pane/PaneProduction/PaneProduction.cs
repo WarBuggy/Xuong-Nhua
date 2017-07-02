@@ -110,7 +110,7 @@ namespace Xuong_Nhua.Pane.Production
 
             Grid.Columns[ColName_Worker].DefaultCellStyle.ForeColor = System.Drawing.Color.DarkGoldenrod;
 
-            Grid.Columns[ColName_Product].DefaultCellStyle.ForeColor = System.Drawing.Color.Orange;
+            Grid.Columns[ColName_Product].DefaultCellStyle.ForeColor = System.Drawing.Color.ForestGreen;
 
             Grid.Columns[ColName_Date].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
         }

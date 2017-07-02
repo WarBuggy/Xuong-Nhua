@@ -1,4 +1,5 @@
 ﻿using Xuong_Nhua.Pane.Base;
+using System.Drawing;
 
 namespace Xuong_Nhua.Pane.Product
 {
@@ -6,7 +7,7 @@ namespace Xuong_Nhua.Pane.Product
     {
         public PaneProductInfo()
         {
-            AddLabel(new object[] { "Product", "Product(s): ", "0" });
+            AddLabel(new object[] { "Product", "Product(s): ", "0", Color.ForestGreen });
         }
 
         public void SetInfo(int product)

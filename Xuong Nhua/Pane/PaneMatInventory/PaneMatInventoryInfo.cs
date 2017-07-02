@@ -8,7 +8,7 @@ namespace Xuong_Nhua.Pane.MatInventory
         public PaneMatInventoryInfo()
         {
             AddLabel(new object[] { "Lot", "Lot(s): ", "0" });
-            AddLabel(new object[] { "Material", "Material(s): ", "0" });
+            AddLabel(new object[] { "Material", "Material(s): ", "0", Color.DarkCyan });
             AddLabel(new object[] { "Quantity", "Total Qty(g): ", "0", Color.PaleVioletRed });
             AddLabel(new object[] { "Output", "Total output: ", "0", Color.DarkViolet });
             AddLabel(new object[] { "Remaining", "Total remainng: ", "0", Color.Red});

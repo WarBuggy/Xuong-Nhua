@@ -79,6 +79,12 @@ namespace Xuong_Nhua.Pane.Formula
 
         public override void FormatGrid()
         {
+            Grid.Columns[ColName_MaterialName].DefaultCellStyle.ForeColor = System.Drawing.Color.DarkCyan;
+            Grid.Columns[ColName_ProductName].DefaultCellStyle.ForeColor = System.Drawing.Color.ForestGreen;
+
+            Grid.Columns[ColName_Quantity].DefaultCellStyle.ForeColor = System.Drawing.Color.PaleVioletRed;
+            Grid.Columns[ColName_Quantity].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            Grid.Columns[ColName_Quantity].DefaultCellStyle.Format = "N0";
         }
     }
 }

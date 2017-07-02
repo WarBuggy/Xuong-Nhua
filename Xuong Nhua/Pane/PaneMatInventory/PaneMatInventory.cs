@@ -64,7 +64,36 @@ namespace Xuong_Nhua.Pane.MatInventory
             return command;
 
             /*
-           SELECT * FROM (                SELECT I.`ID`,  DATE_FORMAT(I.`Date`,'%d-%m-%y') as `date`, I.`lot`, I.`material`, M.`name`,                coalesce(I.`quantity`, 0) as quantity,               coalesce(sum(O.`quantity`), 0) as output,               coalesce(I.`quantity`-sum(O.`quantity`), 0) as remaining,                coalesce(I.`price`, 0) as price, I.`comment`               FROM matin as I, material as M, matout as O               WHERE I.`material`=M.`id`                AND I.`material`=COALESCE(@MaterialInput, I.`material`)               AND I.`id`=O.`inid`                AND I.`lot` LIKE CONCAT('%',@LotInput,'%')                AND I.`DATE`>=@DateFrom AND I.`DATE`<=@DateUntil               GROUP BY I.id                  UNION                  SELECT I.`ID`,  DATE_FORMAT(I.`Date`,'%d-%m-%y') as `date`, I.`lot`, I.`material`, M.`name`, I.`quantity`,               0 as output,               I.`quantity` as remaining,                I.`price`, I.`comment`               FROM matin as I, material as M, matout as O               WHERE I.`material`=M.`ID`                AND I.`material`=COALESCE(@MaterialInput, I.`material`)               AND I.`id`NOT IN (SELECT `inid` FROM `matout`)                AND I.`lot` LIKE CONCAT('%',@LotInput,'%')                AND I.`DATE`>=@DateFrom AND I.`DATE`<=@DateUntil               GROUP BY I.`id`) as T WHERE id IS NOT NULL                ORDER BY `date`;  
+           SELECT * FROM (
+  
+              SELECT I.`ID`,  DATE_FORMAT(I.`Date`,'%d-%m-%y') as `date`, I.`lot`, I.`material`, M.`name`, 
+               coalesce(I.`quantity`, 0) as quantity,
+               coalesce(sum(O.`quantity`), 0) as output,
+               coalesce(I.`quantity`-sum(O.`quantity`), 0) as remaining, 
+               coalesce(I.`price`, 0) as price, I.`comment`
+               FROM matin as I, material as M, matout as O
+               WHERE I.`material`=M.`id` 
+               AND I.`material`=COALESCE(@MaterialInput, I.`material`)
+               AND I.`id`=O.`inid` 
+               AND I.`lot` LIKE CONCAT('%',@LotInput,'%') 
+               AND I.`DATE`>=@DateFrom AND I.`DATE`<=@DateUntil
+               GROUP BY I.id
+   
+               UNION 
+   
+              SELECT I.`ID`,  DATE_FORMAT(I.`Date`,'%d-%m-%y') as `date`, I.`lot`, I.`material`, M.`name`, I.`quantity`,
+               0 as output,
+               I.`quantity` as remaining, 
+               I.`price`, I.`comment`
+               FROM matin as I, material as M, matout as O
+               WHERE I.`material`=M.`ID` 
+               AND I.`material`=COALESCE(@MaterialInput, I.`material`)
+               AND I.`id`NOT IN (SELECT `inid` FROM `matout`) 
+               AND I.`lot` LIKE CONCAT('%',@LotInput,'%') 
+               AND I.`DATE`>=@DateFrom AND I.`DATE`<=@DateUntil
+               GROUP BY I.`id`) as T WHERE id IS NOT NULL 
+               ORDER BY `date`;
+  
             */
         }
 
@@ -99,12 +128,15 @@ namespace Xuong_Nhua.Pane.MatInventory
             Grid.Columns[ColName_Remaining].DefaultCellStyle.ForeColor = System.Drawing.Color.Red;
             Grid.Columns[ColName_Remaining].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             Grid.Columns[ColName_Remaining].DefaultCellStyle.Format = "N0";
+
+            Grid.Columns[ColName_MaterialName].DefaultCellStyle.ForeColor = System.Drawing.Color.DarkCyan;
         }
 
         public override void SetButtonsVisibility()
         {
             SHOW_INSERT_BUTTON = false;
             SHOW_DELETE_BUTTON = false;
+            SHOW_EDIT_BUTTON = false;
         }
 
         public override void SetFirstMode()

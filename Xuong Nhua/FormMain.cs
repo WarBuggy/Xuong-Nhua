@@ -11,6 +11,7 @@ using Xuong_Nhua.Pane.Session;
 using Xuong_Nhua.Pane.Worker;
 using Xuong_Nhua.Pane.Production;
 using Xuong_Nhua.Pane.MatInventory;
+using Xuong_Nhua.Pane.MatOut;
 
 namespace Xuong_Nhua
 {
@@ -140,6 +141,17 @@ namespace Xuong_Nhua
                 Program.PaneMatInventory.LoadPane();
             }
             DisplayInPaneMain(Program.PaneMatInventory);
+        }
+
+        private void outputOverviewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Program.PaneMatOut == null)
+            {
+                Program.PaneMatOut = new PaneMatOut();
+                Program.PaneMatOut.Dock = DockStyle.Fill;
+                Program.PaneMatOut.LoadPane();
+            }
+            DisplayInPaneMain(Program.PaneMatOut);
         }
     }
 }

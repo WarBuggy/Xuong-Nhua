@@ -1,6 +1,7 @@
 ﻿using Xuong_Nhua.Pane.Base;
 using System.Data;
 using MySql.Data.MySqlClient;
+using System.Windows.Forms;
 
 namespace Xuong_Nhua.Pane.Session
 {
@@ -63,6 +64,8 @@ namespace Xuong_Nhua.Pane.Session
 
         public override void FormatGrid()
         {
+            Grid.Columns[ColName_Hour].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            Grid.Columns[ColName_Hour].DefaultCellStyle.Format = "N0";
         }
     }
 }

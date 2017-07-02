@@ -62,6 +62,7 @@ namespace Xuong_Nhua.Pane.Partner
 
         public override void FormatGrid()
         {
+            Grid.Columns[ColName_Name].DefaultCellStyle.ForeColor = System.Drawing.Color.Orange;
         }
     }
 }

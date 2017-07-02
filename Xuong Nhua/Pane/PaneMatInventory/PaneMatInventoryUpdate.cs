@@ -14,8 +14,6 @@ namespace Xuong_Nhua.Pane.MatInventory
         private PaneInputNumberbox NumQuantity = new PaneInputNumberbox("Quantity");
         private PaneInputTextbox TxtComment = new PaneInputTextbox("Comment");
         private int id;
-        private int inputQuantity;
-
 
         public PaneMatInventoryUpdate(PaneInfo info)
             : base(info)
@@ -31,7 +29,7 @@ namespace Xuong_Nhua.Pane.MatInventory
             TxtLot.SetEnable(false);
             AddControl(TxtLot);
 
-            string sql = "select 1 as sortcol, id, `name` from `material`";
+            string sql = "";
             CboProduction.SetComboBox(sql, ThemeCombo.ONE_SELECT_MODE, "id", "name");
             AddControl(CboProduction);
 

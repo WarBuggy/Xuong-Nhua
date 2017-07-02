@@ -70,6 +70,9 @@ namespace Xuong_Nhua.Pane.Worker
 
         public override void FormatGrid()
         {
+            Grid.Columns[ColName_Salary].DefaultCellStyle.ForeColor = System.Drawing.Color.DarkMagenta;
+            Grid.Columns[ColName_Salary].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            Grid.Columns[ColName_Salary].DefaultCellStyle.Format = "N0";
         }
     }
 }
