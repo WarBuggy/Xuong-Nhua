@@ -11,7 +11,7 @@ namespace Xuong_Nhua.Pane.MatInventory
         private PaneInputDate DatIn = new PaneInputDate("Date");
         private PaneInputTextbox TxtLot = new PaneInputTextbox("Lot");
         private PaneInputComboBox CboProduction = new PaneInputComboBox("Production");
-        private PaneInputNumberbox NumQuantity = new PaneInputNumberbox("Quantity");
+        private PaneInputNumberbox NumQuantity = new PaneInputNumberbox("Quantity(g)");
         private PaneInputTextbox TxtComment = new PaneInputTextbox("Comment");
         private int id;
 

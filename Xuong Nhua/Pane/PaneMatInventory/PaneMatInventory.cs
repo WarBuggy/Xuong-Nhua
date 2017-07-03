@@ -14,9 +14,9 @@ namespace Xuong_Nhua.Pane.MatInventory
         public static string ColName_Lot = "Lot";
         public static string ColName_MaterialID = "Material ID";
         public static string ColName_MaterialName = "Material";
-        public static string ColName_Quantity = "Quantity";
-        public static string ColName_Output = "Output";
-        public static string ColName_Remaining = "Remaining";
+        public static string ColName_Quantity = "Quantity(g)";
+        public static string ColName_Output = "Output(g)";
+        public static string ColName_Remaining = "Remaining(g)";
         public static string ColName_Price = "Price";
         public static string ColName_Comment = "Comment";
 
@@ -64,35 +64,34 @@ namespace Xuong_Nhua.Pane.MatInventory
             return command;
 
             /*
-           SELECT * FROM (
+           SELECT * FROM 
+            (
+             SELECT I.`ID`,  DATE_FORMAT(I.`Date`,'%d-%m-%y') as `date`, I.`lot`, I.`material`, M.`name`, 
+             coalesce(I.`quantity`, 0) as quantity,
+             coalesce(sum(O.`quantity`), 0) as output,
+             coalesce(I.`quantity`-sum(O.`quantity`), 0) as remaining, 
+             coalesce(I.`price`, 0) as price, I.`comment`
+             FROM matin as I, material as M, matout as O
+             WHERE I.`material`=M.`id` 
+             AND I.`material`=COALESCE(@MaterialInput, I.`material`)
+             AND I.`id`=O.`inid` 
+             AND I.`lot` LIKE CONCAT('%',@LotInput,'%') 
+             AND I.`DATE`>=@DateFrom AND I.`DATE`<=@DateUntil
+             GROUP BY I.id
+ 
+             UNION 
+   
+             SELECT I.`ID`,  DATE_FORMAT(I.`Date`,'%d-%m-%y') as `date`, I.`lot`, I.`material`, M.`name`, 
+             I.`quantity`, 0 as output, I.`quantity` as remaining,  I.`price`, I.`comment`
+             FROM matin as I, material as M
+             WHERE I.`material`=M.`ID` 
+             AND I.`material`=COALESCE(@MaterialInput, I.`material`)
+             AND I.`id`NOT IN (SELECT DISTINCT `inid` FROM `matout`) 
+             AND I.`lot` LIKE CONCAT('%',@LotInput,'%') 
+             AND I.`DATE`>=@DateFrom AND I.`DATE`<=@DateUntil
+             GROUP BY I.`id`
+            ) as T WHERE id IS NOT NULL ORDER BY `date`;
   
-              SELECT I.`ID`,  DATE_FORMAT(I.`Date`,'%d-%m-%y') as `date`, I.`lot`, I.`material`, M.`name`, 
-               coalesce(I.`quantity`, 0) as quantity,
-               coalesce(sum(O.`quantity`), 0) as output,
-               coalesce(I.`quantity`-sum(O.`quantity`), 0) as remaining, 
-               coalesce(I.`price`, 0) as price, I.`comment`
-               FROM matin as I, material as M, matout as O
-               WHERE I.`material`=M.`id` 
-               AND I.`material`=COALESCE(@MaterialInput, I.`material`)
-               AND I.`id`=O.`inid` 
-               AND I.`lot` LIKE CONCAT('%',@LotInput,'%') 
-               AND I.`DATE`>=@DateFrom AND I.`DATE`<=@DateUntil
-               GROUP BY I.id
-   
-               UNION 
-   
-              SELECT I.`ID`,  DATE_FORMAT(I.`Date`,'%d-%m-%y') as `date`, I.`lot`, I.`material`, M.`name`, I.`quantity`,
-               0 as output,
-               I.`quantity` as remaining, 
-               I.`price`, I.`comment`
-               FROM matin as I, material as M, matout as O
-               WHERE I.`material`=M.`ID` 
-               AND I.`material`=COALESCE(@MaterialInput, I.`material`)
-               AND I.`id`NOT IN (SELECT `inid` FROM `matout`) 
-               AND I.`lot` LIKE CONCAT('%',@LotInput,'%') 
-               AND I.`DATE`>=@DateFrom AND I.`DATE`<=@DateUntil
-               GROUP BY I.`id`) as T WHERE id IS NOT NULL 
-               ORDER BY `date`;
   
             */
         }
@@ -100,13 +99,21 @@ namespace Xuong_Nhua.Pane.MatInventory
         public override void PopulatePaneSummary(ref DataTable dt)
         {
             DataView View = new DataView(dt);
-            int materialCount = View.ToTable(true, "material").Rows.Count;
 
-            int totalQuantity = Grid.Rows.Cast<DataGridViewRow>().Sum(t => Convert.ToInt32(t.Cells[ColName_Quantity].Value));
-            int totalOutput = Grid.Rows.Cast<DataGridViewRow>().Sum(t => Convert.ToInt32(t.Cells[ColName_Output].Value));
-            int totalRemaining = Grid.Rows.Cast<DataGridViewRow>().Sum(t => Convert.ToInt32(t.Cells[ColName_Remaining].Value));
-            int totalPrice = Grid.Rows.Cast<DataGridViewRow>().Sum(t => Convert.ToInt32(t.Cells[ColName_Price].Value));
-            ((PaneMatInventoryInfo)PaneSumChild).SetInfo(dt.Rows.Count, materialCount, totalQuantity, totalOutput, totalRemaining, totalPrice / dt.Rows.Count);
+            int materialCount = 0;
+            double totalQuantity = 0;
+            double totalOutput = 0;
+            double totalRemaining = 0;
+            int avgPrice = 0;
+            if (dt.Rows.Count > 0)
+            {
+                materialCount = View.ToTable(true, "material").Rows.Count;
+                totalQuantity = Grid.Rows.Cast<DataGridViewRow>().Sum(t => Convert.ToInt32(t.Cells[ColName_Quantity].Value)) / 1000;
+                totalOutput = Grid.Rows.Cast<DataGridViewRow>().Sum(t => Convert.ToInt32(t.Cells[ColName_Output].Value)) / 1000;
+                totalRemaining = Grid.Rows.Cast<DataGridViewRow>().Sum(t => Convert.ToInt32(t.Cells[ColName_Remaining].Value)) / 1000;
+                avgPrice = Grid.Rows.Cast<DataGridViewRow>().Sum(t => Convert.ToInt32(t.Cells[ColName_Price].Value)) / dt.Rows.Count;
+            }
+            ((PaneMatInventoryInfo)PaneSumChild).SetInfo(dt.Rows.Count, materialCount, totalQuantity, totalOutput, totalRemaining, avgPrice);
         }
 
         public override void FormatGrid()

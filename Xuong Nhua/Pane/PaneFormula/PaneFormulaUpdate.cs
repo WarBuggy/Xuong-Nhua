@@ -11,7 +11,7 @@ namespace Xuong_Nhua.Pane.Formula
         private PaneInputTextbox TxtComment = new PaneInputTextbox("Comment");
         private PaneInputComboBox CboProduct = new PaneInputComboBox("Product");
         private PaneInputComboBox CboMaterial = new PaneInputComboBox("Material");
-        private PaneInputNumberbox NumQuantity = new PaneInputNumberbox("Quantity");
+        private PaneInputNumberbox NumQuantity = new PaneInputNumberbox("Quantity(g)");
 
         public PaneFormulaUpdate(PaneInfo info)
             : base(info)

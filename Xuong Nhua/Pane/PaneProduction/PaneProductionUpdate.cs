@@ -11,7 +11,7 @@ namespace Xuong_Nhua.Pane.Production
         private PaneInputComboBox CboSession = new PaneInputComboBox("Session");
         private PaneInputComboBox CboWorker= new PaneInputComboBox("Worker");
         private PaneInputComboBox CboProduct = new PaneInputComboBox("Product");
-        private PaneInputNumberbox NumQuantity = new PaneInputNumberbox("Quantity");
+        private PaneInputNumberbox NumQuantity = new PaneInputNumberbox("Quantity(g)");
         private PaneInputTextbox TxtComment = new PaneInputTextbox("Comment");
 
 

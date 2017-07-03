@@ -153,5 +153,27 @@ namespace Xuong_Nhua
             }
             DisplayInPaneMain(Program.PaneMatOut);
         }
+
+        private void productsToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            if (Program.PaneProduct == null)
+            {
+                Program.PaneProduct = new PaneProduct();
+                Program.PaneProduct.Dock = DockStyle.Fill;
+                Program.PaneProduct.LoadPane();
+            }
+            DisplayInPaneMain(Program.PaneProduct);
+        }
+
+        private void formulasToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            if (Program.PaneFormula== null)
+            {
+                Program.PaneFormula = new PaneFormula();
+                Program.PaneFormula.Dock = DockStyle.Fill;
+                Program.PaneFormula.LoadPane();
+            }
+            DisplayInPaneMain(Program.PaneFormula);
+        }
     }
 }

@@ -14,7 +14,7 @@ namespace Xuong_Nhua.Pane.Formula
         public static string ColName_ProductName = "Product";
         public static string ColName_MaterialID = "Material ID";
         public static string ColName_MaterialName = "Material";
-        public static string ColName_Quantity = "Quantity";
+        public static string ColName_Quantity = "Quantity(g)";
         public static string ColName_Comment = "Comment";
 
         public override void SetPANEID()
@@ -74,6 +74,7 @@ namespace Xuong_Nhua.Pane.Formula
             int productCount = View.ToTable(true, "product").Rows.Count;
             int materialCount = View.ToTable(true, "material").Rows.Count;
             int total = Grid.Rows.Cast<DataGridViewRow>().Sum(t => Convert.ToInt32(t.Cells[PaneFormula.ColName_Quantity].Value));
+
             ((PaneFormulaInfo)PaneSumChild).SetInfo(productCount, materialCount, total);
         }
 

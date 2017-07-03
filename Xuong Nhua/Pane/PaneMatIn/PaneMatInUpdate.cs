@@ -58,7 +58,7 @@ namespace Xuong_Nhua.Pane.MatIn
         public override void ReplaceInsertParams(ref MySqlCommand command)
         {
             command.Parameters.AddWithValue("DatInInput", DatIn.GetInputValue());
-            command.Parameters.AddWithValue("LotInput", NumQuantity.GetInputValue());
+            command.Parameters.AddWithValue("LotInput", TxtLot.GetInputValue());
             command.Parameters.AddWithValue("MaterialInput", CboMaterial.GetInputValue());
             command.Parameters.AddWithValue("QuantityInput", NumQuantity.GetInputValue());
             command.Parameters.AddWithValue("PriceInput", NumPrice.GetInputValue());

@@ -98,6 +98,10 @@ namespace Xuong_Nhua.Pane.Production
             int workerCount = View.ToTable(true, "worker").Rows.Count;
 
             int totalQuantity = Grid.Rows.Cast<DataGridViewRow>().Sum(t => Convert.ToInt32(t.Cells[ColName_Quantity].Value));
+            if (dt.Rows.Count > 0)
+            {
+                totalQuantity = totalQuantity / 1000;
+            }
             
             ((PaneProductionInfo)PaneSumChild).SetInfo(dt.Rows.Count, workerCount, productCount, totalQuantity);
         }

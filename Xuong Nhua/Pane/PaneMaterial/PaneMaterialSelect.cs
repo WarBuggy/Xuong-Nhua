@@ -8,7 +8,7 @@ namespace Xuong_Nhua.Pane.Material
     class PaneMaterialSelect : PaneBaseSelect
     {
         private PaneInputTextbox TxtName;
-        private PaneInputComboBox CboType = new PaneInputComboBox("CboType");
+        private PaneInputComboBox CboType = new PaneInputComboBox("Type");
 
         public PaneMaterialSelect()
         {

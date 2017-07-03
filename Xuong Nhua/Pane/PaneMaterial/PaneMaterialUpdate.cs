@@ -22,20 +22,21 @@ namespace Xuong_Nhua.Pane.Material
             TxtName.SetTextbox("");
             AddControl(TxtName);
 
+            string sql = "select 1 as sortcol, id, `name` from `mattype`";
+            CboType.SetComboBox(sql, ThemeCombo.ALL_SELECT_MODE, "id", "name");
+            AddControl(CboType);
+
             TxtDesc.SetTextbox("", false, 200);
             AddControl(TxtDesc);
 
             TxtComment.SetTextbox("", false, 200);
             AddControl(TxtComment);
 
-            string sql = "select 1 as sortcol, id, `name` from `mattype`";
-            CboType.SetComboBox(sql, ThemeCombo.ALL_SELECT_MODE, "id", "name");
-            AddControl(CboType);
         }
 
         public override void SetInputControlsArray()
         {
-            InputControls = new PaneInputControl[] { TxtName, TxtComment, TxtDesc };
+            InputControls = new PaneInputControl[] { TxtName, CboType, TxtDesc, TxtComment };
         }
 
         public override void ReplaceInsertParams(ref MySqlCommand command)

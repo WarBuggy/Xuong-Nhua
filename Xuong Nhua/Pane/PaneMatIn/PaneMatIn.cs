@@ -83,15 +83,22 @@ namespace Xuong_Nhua.Pane.MatIn
         public override void PopulatePaneSummary(ref DataTable dt)
         {
             DataView View = new DataView(dt);
+            int partnerCount = 0;
+            int materialCount = 0;
+            int totalQuantity = 0;
+            int avgPrice = 0;
+            int sum = 0;
 
-            int partnerCount = View.ToTable(true, "partner").Rows.Count;
-            int materialCount = View.ToTable(true, "material").Rows.Count;
+            if (dt.Rows.Count > 0)
+            {
+                partnerCount = View.ToTable(true, "partner").Rows.Count;
+                materialCount = View.ToTable(true, "material").Rows.Count;
 
-            int totalQuantity = Grid.Rows.Cast<DataGridViewRow>().Sum(t => Convert.ToInt32(t.Cells[PaneMatIn.ColName_Quantity].Value));
-            int totalPrice = Grid.Rows.Cast<DataGridViewRow>().Sum(t => Convert.ToInt32(t.Cells[PaneMatIn.ColName_Price].Value));
-            int sum = Grid.Rows.Cast<DataGridViewRow>().Sum(t => Convert.ToInt32(t.Cells[PaneMatIn.ColName_Total].Value));
-
-            ((PaneMatInInfo)PaneSumChild).SetInfo(dt.Rows.Count, materialCount, totalQuantity, totalPrice, sum, partnerCount);
+                totalQuantity = Grid.Rows.Cast<DataGridViewRow>().Sum(t => Convert.ToInt32(t.Cells[PaneMatIn.ColName_Quantity].Value)) / 1000;
+                avgPrice = Grid.Rows.Cast<DataGridViewRow>().Sum(t => Convert.ToInt32(t.Cells[PaneMatIn.ColName_Price].Value));
+                sum = Grid.Rows.Cast<DataGridViewRow>().Sum(t => Convert.ToInt32(t.Cells[PaneMatIn.ColName_Total].Value));
+            }
+            ((PaneMatInInfo)PaneSumChild).SetInfo(dt.Rows.Count, materialCount, totalQuantity, avgPrice, sum, partnerCount);
         }
 
         public override void FormatGrid()
