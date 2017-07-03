@@ -11,6 +11,7 @@ namespace Xuong_Nhua.Pane.Formula
         private PaneInputTextbox TxtComment = new PaneInputTextbox("Comment");
         private PaneInputComboBox CboProduct = new PaneInputComboBox("Product");
         private PaneInputComboBox CboMaterial = new PaneInputComboBox("Material");
+        private PaneInputComboBox CboInOut = new PaneInputComboBox("In/Out");
         private PaneInputNumberbox NumQuantity = new PaneInputNumberbox("Quantity(g)");
 
         public PaneFormulaUpdate(PaneInfo info)
@@ -32,6 +33,10 @@ namespace Xuong_Nhua.Pane.Formula
             AddControl(NumQuantity);
             NumQuantity.ResetValue();
 
+            sql = "select 1 as sortcol, 0 as id, 'In' as `name` UNION select 1 as sortcol, 1 as id, 'Out' as `name`";
+            CboInOut.SetComboBox(sql, ThemeCombo.ONE_SELECT_MODE, "id", "name");
+            AddControl(CboInOut);
+
             TxtComment.SetTextbox("", false, 200);
             AddControl(TxtComment);
         }
@@ -46,10 +51,12 @@ namespace Xuong_Nhua.Pane.Formula
             command.Parameters.AddWithValue("ProductInput", CboProduct.GetInputValue());
             command.Parameters.AddWithValue("MaterialInput", CboMaterial.GetInputValue());
             command.Parameters.AddWithValue("QuantityInput", NumQuantity.GetInputValue());
+            command.Parameters.AddWithValue("InOutInput", CboInOut.GetInputValue());
             command.Parameters.AddWithValue("CommentInput", TxtComment.GetInputValue().ToString());
 
             /*
-            INSERT INTO formula (product, material, quantity, comment) VALUES (@ProductInput, @MaterialInput, @QuantityInput, @CommentInput); 
+            INSERT INTO formula (product, material, quantity, `out`, `comment`) 
+             VALUES (@ProductInput, @MaterialInput, @QuantityInput, @InOutInput, @CommentInput); 
             */
         }
 
@@ -58,10 +65,11 @@ namespace Xuong_Nhua.Pane.Formula
             command.Parameters.AddWithValue("ProductInput", CboProduct.GetInputValue());
             command.Parameters.AddWithValue("MaterialInput", CboMaterial.GetInputValue());
             command.Parameters.AddWithValue("QuantityInput", NumQuantity.GetInputValue());
+            command.Parameters.AddWithValue("InOutInput", CboInOut.GetInputValue());
             command.Parameters.AddWithValue("CommentInput", TxtComment.GetInputValue().ToString());
 
             /*
-            UPDATE `formula` SET product = @ProductInput, material = @MaterialInput, Quantity = @QuantityInput, Comment = @CommentInput WHERE ID=@ID
+            UPDATE `formula` SET product = @ProductInput, material = @MaterialInput, Quantity = @QuantityInput, `out`=@InOutInput, Comment = @CommentInput WHERE ID=@ID
             */
         }
 
@@ -70,6 +78,7 @@ namespace Xuong_Nhua.Pane.Formula
             TxtComment.SetNewInitValue(dataGridViewRow.Cells[PaneFormula.ColName_Comment].Value.ToString());
             CboProduct.SetNewInitValue(dataGridViewRow.Cells[PaneFormula.ColName_ProductID].Value);
             CboMaterial.SetNewInitValue(dataGridViewRow.Cells[PaneFormula.ColName_MaterialID].Value);
+            CboInOut.SetNewInitValue(dataGridViewRow.Cells[PaneFormula.ColName_InHidden].Value);
             NumQuantity.SetNewInitValue(dataGridViewRow.Cells[PaneFormula.ColName_Quantity].Value);
         }
 

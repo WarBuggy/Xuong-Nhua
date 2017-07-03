@@ -15,6 +15,8 @@ namespace Xuong_Nhua.Pane.Formula
         public static string ColName_MaterialID = "Material ID";
         public static string ColName_MaterialName = "Material";
         public static string ColName_Quantity = "Quantity(g)";
+        public static string ColName_InHidden = "In/Out Hidden";
+        public static string ColName_In = "In/Out";
         public static string ColName_Comment = "Comment";
 
         public override void SetPANEID()
@@ -24,7 +26,7 @@ namespace Xuong_Nhua.Pane.Formula
 
         public override void SetColNames()
         {
-            ColNames = new string[] { ColName_ID, ColName_ProductID, ColName_ProductName, ColName_MaterialID, ColName_MaterialName, ColName_Quantity, ColName_Comment };
+            ColNames = new string[] { ColName_ID, ColName_ProductID, ColName_ProductName, ColName_MaterialID, ColName_MaterialName, ColName_Quantity, ColName_InHidden, ColName_In, ColName_Comment };
         }
 
         public override void SetColVisibility()
@@ -32,6 +34,7 @@ namespace Xuong_Nhua.Pane.Formula
             Grid.Columns[ColName_ID].Visible = false;
             Grid.Columns[ColName_ProductID].Visible = false;
             Grid.Columns[ColName_MaterialID].Visible = false;
+            Grid.Columns[ColName_InHidden].Visible = false;
         }
 
         public override void SetPaneSum()
@@ -52,19 +55,23 @@ namespace Xuong_Nhua.Pane.Formula
         public override MySqlCommand CreateViewQueryCommand(object[] args)
         {
             MySqlCommand command = new MySqlCommand(PaneInfo.ViewQuery);
-            if (args.Length == 2)
+            if (args.Length == 3)
             {
                 command.Parameters.AddWithValue("ProductInput", args[0]);
                 command.Parameters.AddWithValue("MaterialInput", args[1]);
+                command.Parameters.AddWithValue("InOutInput", args[2]);
             }
             return command;
 
             /*
-            SELECT F.ID, F.product, P.name, F.material, M.name, F.quantity, F.Comment 
-            FROM formula as F,material as M, product as P 
-            WHERE F.material = M.ID AND F.product = P.ID 
-            AND F.material = COALESCE(@MaterialInput, F.material) 
-            AND F.product = COALESCE(@ProductInput, F.product) ORDER BY P.Name; 
+            SELECT F.ID, F.product, P.name, F.material, M.name, F.quantity, F.`out`, 
+              IF(`out`=0,'In','Out') as `in/out`,
+              F.Comment FROM formula as F,material as M, product as P
+              WHERE F.material = M.ID AND F.product = P.ID
+              AND F.material = COALESCE(@MaterialInput, F.material)
+              AND F.product = COALESCE(@ProductInput, F.product) 
+              AND F.out = coalesce(@InOutInput, F.out) 
+              ORDER BY P.Name;
             */
         }
 
@@ -86,6 +93,8 @@ namespace Xuong_Nhua.Pane.Formula
             Grid.Columns[ColName_Quantity].DefaultCellStyle.ForeColor = System.Drawing.Color.PaleVioletRed;
             Grid.Columns[ColName_Quantity].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             Grid.Columns[ColName_Quantity].DefaultCellStyle.Format = "N0";
+
+            Grid.Columns[ColName_In].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
         }
     }
 }
